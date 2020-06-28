@@ -16,7 +16,7 @@ html {
 
 body {
   font-size: 16px;
-  ${tw`antialiased pb-10`}
+  ${tw`antialiased pt-5 pb-10`}
   font-family: 'Varela Round', sans-serif;
   background-color: ${({ theme }) => theme.backgroundDark};
 }
