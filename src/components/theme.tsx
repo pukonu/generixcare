@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import resolveConfig from 'tailwindcss/resolveConfig';
