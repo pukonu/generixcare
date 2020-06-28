@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'twin.macro'; // eslint-disable-line import/no-extraneous-dependencies
+import tw from 'twin.macro';
 
-import Theme from '../components/theme';
+import { Layout } from 'src/components';
 
 const Wrapper = styled.div`
   ${tw`flex flex-col items-center justify-center h-screen`}
@@ -21,7 +21,7 @@ const Text = tw.p`
 `;
 
 const Index = () => (
-  <Theme>
+  <Layout>
     <div>
       <Wrapper>
         <Main>
@@ -32,7 +32,7 @@ const Index = () => (
         </Main>
       </Wrapper>
     </div>
-  </Theme>
+  </Layout>
 );
 
 export default Index;
