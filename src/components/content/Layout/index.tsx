@@ -9,6 +9,7 @@ import { GlobalStyle } from 'src/styles/globalStyles';
 import { theme } from 'src/styles/themes';
 import Header from 'src/components/navigation/Header';
 import MobileMenu from 'src/components/navigation/MobileMenu';
+import DesktopMenu from 'src/components/navigation/DesktopMenu';
 import Footer from 'src/components/navigation/Footer';
 
 library.add(faAngleUp, faBars, faTwitter, faFacebookF, faGooglePlusG);
@@ -28,6 +29,7 @@ const Layout: FunctionComponent = ({ children }) => {
         />
       </Helmet>
       <Header OpenMenu={() => OpenMenu(true)} />
+      <DesktopMenu />
       <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
       {children}
       <Footer />

@@ -2,7 +2,7 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export interface NavItems {
   title: string;
-  slug: string | null;
+  slug?: string;
   showInFooter?: boolean;
   children?: NavItems[];
 }
