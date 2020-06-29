@@ -2,9 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import tw from 'twin.macro';
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
 /* html,
 body, #___gatsby {
  ${tw`h-full`}
@@ -15,9 +12,10 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 15px;
   ${tw`antialiased pt-5 pb-10`}
   font-family: 'Varela Round', sans-serif;
+  color: ${({ theme }) => theme.secondaryDark};
   background-color: ${({ theme }) => theme.backgroundDark};
 }
 

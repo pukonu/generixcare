@@ -1,3 +1,7 @@
 module.exports = {
-  plugins: ['gatsby-plugin-styled-components', 'gatsby-plugin-root-import']
+  plugins: [
+    'gatsby-plugin-root-import',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components'
+  ]
 };

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { navigation } from 'src/data/navigation';
@@ -8,7 +9,7 @@ const navItems = navigation
   .filter(({ showInFooter }) => !!showInFooter)
   .map(({ title, slug }) => (
     <li key={title} className="inline-block pr-4 md:pr-8 py-4">
-      <a href={slug as string}>{title}</a>
+      <Link to={slug as string}>{title}</Link>
     </li>
   ));
 
