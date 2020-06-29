@@ -21,3 +21,22 @@ export interface MobileMenuProps {
   OpenMenu: () => void;
   isMenuOpen: boolean;
 }
+
+export interface Breadcrumbs {
+  title: string;
+  slug?: string;
+}
+
+export interface BreadcrumbsProps {
+  data?: Breadcrumbs[];
+}
+
+export interface LayoutProps {
+  seoTitle: string;
+  pageTitle?: string;
+  breadcrumbsData?: Breadcrumbs[];
+}
+
+export interface PageTitleProps {
+  title: string;
+}

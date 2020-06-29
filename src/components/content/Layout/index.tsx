@@ -12,13 +12,19 @@ import DesktopMenu from 'src/components/navigation/DesktopMenu';
 import Breadcrumbs from 'src/components/navigation/Breadcrumbs';
 import Footer from 'src/components/navigation/Footer';
 
+import { LayoutProps } from 'src/interfaces';
 import { GlobalStyle } from 'src/styles/globalStyles';
 import { theme } from 'src/styles/themes';
 import PageTitle from '../PageTitle';
 
 library.add(faAngleUp, faAngleRight, faBars, faTwitter, faFacebookF, faGooglePlusG);
 
-const Layout: FunctionComponent = ({ children }) => {
+const Layout: FunctionComponent<LayoutProps> = ({
+  children,
+  pageTitle,
+  seoTitle = '',
+  breadcrumbsData
+}) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
 
   return (
@@ -44,7 +50,7 @@ const Layout: FunctionComponent = ({ children }) => {
         <meta name="slurp" content="index, follow, archive" />
         <meta name="msnbot" content="index, follow, archive" />
 
-        <title>Contact Us | Generix Care Website</title>
+        <title>{seoTitle} | Generix Care Website</title>
 
         <link rel="shortcut icon" href={favcon} type="image/x-icon" />
 
@@ -60,8 +66,8 @@ const Layout: FunctionComponent = ({ children }) => {
       <Header OpenMenu={() => OpenMenu(true)} />
       <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
       <DesktopMenu />
-      <PageTitle />
-      <Breadcrumbs />
+      {pageTitle && <PageTitle title={pageTitle} />}
+      {breadcrumbsData?.length ? <Breadcrumbs data={breadcrumbsData} /> : null}
       <div className="container">{children}</div>
       <Footer />
     </ThemeProvider>
