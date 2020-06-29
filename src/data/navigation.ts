@@ -29,7 +29,7 @@ export const navigation: NavItems[] = [
   { title: 'Home', slug: '/', showInFooter: true },
   { title: 'About', slug: '/about', showInFooter: true, children: about },
   { title: 'Services', slug: '/services', showInFooter: true, children: services },
-  { title: 'How We Work', slug: null, children: howWeWork },
-  { title: 'Quality Assurance', slug: null, children: qualityAssurance },
+  { title: 'How We Work', children: howWeWork },
+  { title: 'Quality Assurance', children: qualityAssurance },
   { title: 'Contacts Us', slug: '/contact', showInFooter: true }
 ];

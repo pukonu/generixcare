@@ -19,8 +19,28 @@ body {
   background-color: ${({ theme }) => theme.backgroundDark};
 }
 
+h2 {
+  font-size: 1.3125rem;
+}
+
 .container {
   ${tw`w-full mx-auto px-4`};
   max-width: 1280px;
+}
+
+.font-secondary {
+  font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 576px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.1875rem;
+  }
 }
 `;
