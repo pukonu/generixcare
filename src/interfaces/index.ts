@@ -12,3 +12,12 @@ export interface SocialMediaLinks {
   url: string;
   icon: IconName;
 }
+
+export interface HeaderProps {
+  OpenMenu: () => void;
+}
+
+export interface MobileMenuProps {
+  OpenMenu: () => void;
+  isMenuOpen: boolean;
+}

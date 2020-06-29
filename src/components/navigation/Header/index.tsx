@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from 'src/images/logo.png';
+import { HeaderProps } from 'src/interfaces';
 import { socialLinks } from 'src/data/socialLinks';
 import { HeaderWrapper } from './styles';
 
@@ -14,7 +15,7 @@ const links = socialLinks.map(({ platform, url, icon }) => (
   </li>
 ));
 
-const Header: FunctionComponent = () => {
+const Header: FunctionComponent<HeaderProps> = ({ OpenMenu }) => {
   return (
     <HeaderWrapper>
       <div className="container">
@@ -27,8 +28,8 @@ const Header: FunctionComponent = () => {
               care wrapped around you.
             </p>
           </div>
-          <div className="w-1/2 md:w-auto md:order-3">
-            <button type="button" className="menu-toggle">
+          <div className="w-1/2 md:w-auto md:order-3 lg:hidden">
+            <button type="button" className="menu-toggle" onClick={OpenMenu}>
               <FontAwesomeIcon icon="bars" size="sm" />
             </button>
           </div>

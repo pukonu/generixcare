@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -7,16 +7,18 @@ import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-
 
 import { GlobalStyle } from 'src/styles/globalStyles';
 import { theme } from 'src/styles/themes';
-import Footer from 'src/components/navigation/Footer';
 import Header from 'src/components/navigation/Header';
+import MobileMenu from 'src/components/navigation/MobileMenu';
+import Footer from 'src/components/navigation/Footer';
 
 library.add(faAngleUp, faBars, faTwitter, faFacebookF, faGooglePlusG);
 
 const Layout: FunctionComponent = ({ children }) => {
+  const [isMenuOpen, OpenMenu] = useState<boolean>(false);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header />
       <Helmet>
         <meta charSet="utf-8" />
         <title>My Title</title>
@@ -25,6 +27,8 @@ const Layout: FunctionComponent = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
+      <Header OpenMenu={() => OpenMenu(true)} />
+      <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
       {children}
       <Footer />
     </ThemeProvider>
