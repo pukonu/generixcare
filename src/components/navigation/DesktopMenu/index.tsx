@@ -30,7 +30,7 @@ const navItems = navigation.map(({ title, slug, children }) => {
   const submenu =
     children &&
     children.map((menuItem) => (
-      <li key={menuItem.title}>
+      <li className="nav-item-submenu" key={menuItem.title}>
         {getListJSX({
           slug: menuItem.slug,
           title: menuItem.title,

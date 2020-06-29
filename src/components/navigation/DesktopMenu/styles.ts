@@ -15,6 +15,10 @@ export const DesktopMenuWrapper = styled.div`
         transition-property: all;
         transition-timing-function: ease;
         ${tw`z-20 duration-200 opacity-100 max-h-screen`}
+
+        .nav-item-submenu {
+          ${tw`block`}
+        }
       }
     }
 
@@ -33,6 +37,10 @@ export const DesktopMenuWrapper = styled.div`
       box-shadow: ${({ theme }) => `0 2px 0 ${theme.primary}`};
       background-color: ${({ theme }) => theme.backgroundLight};
       ${tw`absolute z-0 top-0 duration-200 opacity-0`}
+
+      .nav-item-submenu {
+        ${tw`hidden`}
+      }
     }
   }
 `;
