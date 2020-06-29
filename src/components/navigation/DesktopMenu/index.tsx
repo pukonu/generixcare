@@ -25,11 +25,17 @@ const getListJSX = ({ slug, title, anchorClass }: ListJSX) => {
 
 const navItems = navigation.map(({ title, slug, children }) => {
   const anchorClass = 'px-5 py-3 block relative z-40';
+  const submenuAnchorClass = 'px-5 py-2 block';
+
   const submenu =
     children &&
     children.map((menuItem) => (
       <li key={menuItem.title}>
-        {getListJSX({ slug: menuItem.slug, title: menuItem.title, anchorClass: 'px-5 py-2 block' })}
+        {getListJSX({
+          slug: menuItem.slug,
+          title: menuItem.title,
+          anchorClass: submenuAnchorClass
+        })}
       </li>
     ));
 
