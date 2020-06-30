@@ -8,7 +8,7 @@ import { FooterWrapper } from './styles';
 const navItems = navigation
   .filter(({ showInFooter }) => !!showInFooter)
   .map(({ title, slug }) => (
-    <li key={title} className="inline-block pr-4 md:pr-8 py-4">
+    <li key={title} className="inline-block pr-4 md:pr-5 py-4">
       <Link to={slug as string}>{title}</Link>
     </li>
   ));
