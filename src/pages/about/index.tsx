@@ -46,6 +46,7 @@ const About = () => {
           </p>
         </div>
       </div>
+
       <div className="flex flex-wrap items-center mt-8">
         <div className="mb-2 w-full md:w-1/2 lg:w-1/4">
           <img

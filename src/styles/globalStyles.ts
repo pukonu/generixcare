@@ -31,6 +31,10 @@ h3 {
   font-size: 1.5rem;
 }
 
+h4 {
+  font-size: 1.125rem;
+}
+
 p {
   ${tw`leading-7`}
 

@@ -49,3 +49,9 @@ export interface ContentBoxProps {
 export interface NewsletterFormValues {
   email: string;
 }
+
+export interface HowWeWorkData {
+  title: string;
+  slug: string;
+  html: string;
+}
