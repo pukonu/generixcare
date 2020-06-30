@@ -19,6 +19,10 @@ body {
   background-color: ${({ theme }) => theme.backgroundDark};
 }
 
+h1 {
+  font-size: 1.875rem;
+}
+
 h2 {
   font-size: 1.3125rem;
 }
@@ -50,9 +54,4 @@ p {
   }
 }
 
-@media (min-width: 768px) {
-  h2 {
-    font-size: 2.1875rem;
-  }
-}
 `;

@@ -50,7 +50,7 @@ const navItems = navigation.map(({ title, slug, children }) => {
 const DesktopMenu: FunctionComponent = () => {
   return (
     <DesktopMenuWrapper className="container">
-      <ul>{navItems}</ul>
+      <ul className="-mx-4">{navItems}</ul>
     </DesktopMenuWrapper>
   );
 };

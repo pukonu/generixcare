@@ -45,3 +45,7 @@ export interface ContentBoxProps {
   title: string;
   className?: string;
 }
+
+export interface NewsletterFormValues {
+  email: string;
+}

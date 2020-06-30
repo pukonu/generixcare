@@ -31,5 +31,5 @@ export const navigation: NavItems[] = [
   { title: 'Services', slug: '/services', showInFooter: true, children: services },
   { title: 'How We Work', children: howWeWork },
   { title: 'Quality Assurance', children: qualityAssurance },
-  { title: 'Contacts Us', slug: '/contact', showInFooter: true }
+  { title: 'Contact Us', slug: '/contact', showInFooter: true }
 ];

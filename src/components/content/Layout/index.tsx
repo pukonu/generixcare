@@ -1,18 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faAngleUp,
-  faAngleRight,
-  faBars,
-  faGlobeEurope,
-  faPhoneAlt
-} from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
-import favcon from 'src/images/favicon.png';
+import favicon from 'src/images/favicon.png';
 import Header from 'src/components/navigation/Header';
 import MobileMenu from 'src/components/navigation/MobileMenu';
 import DesktopMenu from 'src/components/navigation/DesktopMenu';
@@ -20,21 +9,7 @@ import Breadcrumbs from 'src/components/navigation/Breadcrumbs';
 import Footer from 'src/components/navigation/Footer';
 
 import { LayoutProps } from 'src/interfaces';
-import { GlobalStyle } from 'src/styles/globalStyles';
-import { theme } from 'src/styles/themes';
 import PageTitle from '../PageTitle';
-
-library.add(
-  faAngleUp,
-  faAngleRight,
-  faBars,
-  faTwitter,
-  faFacebookF,
-  faGooglePlusG,
-  faEnvelope,
-  faGlobeEurope,
-  faPhoneAlt
-);
 
 const Layout: FunctionComponent<LayoutProps> = ({
   children,
@@ -45,8 +20,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <>
       <Helmet>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -69,7 +43,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
 
         <title>{seoTitle} | Generix Care Website</title>
 
-        <link rel="shortcut icon" href={favcon} type="image/x-icon" />
+        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
 
         <link
           href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
@@ -87,7 +61,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
       {breadcrumbsData?.length ? <Breadcrumbs data={breadcrumbsData} /> : null}
       <div className="container light-container pt-5 pb-10">{children}</div>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 };
 
