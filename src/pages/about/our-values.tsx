@@ -15,8 +15,6 @@ const breadcrumbsData = [
 const OurValues = () => {
   return (
     <Layout seoTitle="Our Values" pageTitle="Our Values" breadcrumbsData={breadcrumbsData}>
-      <h3 className="mb-2">Our Values</h3>
-
       <div className="flex flex-wrap md:-mx-4">
         <div className="w-full md:w-1/2 lg:w-1/3 md:px-4">
           <img

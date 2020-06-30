@@ -33,6 +33,10 @@ h3 {
 
 p {
   ${tw`leading-7`}
+
+  + p {
+    ${tw`mt-2`}
+  }
 }
 
 .container {
