@@ -2,7 +2,14 @@ import React, { FunctionComponent, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleUp, faAngleRight, faBars } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAngleUp,
+  faAngleRight,
+  faBars,
+  faGlobeEurope,
+  faPhoneAlt
+} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
 import favcon from 'src/images/favicon.png';
@@ -17,7 +24,17 @@ import { GlobalStyle } from 'src/styles/globalStyles';
 import { theme } from 'src/styles/themes';
 import PageTitle from '../PageTitle';
 
-library.add(faAngleUp, faAngleRight, faBars, faTwitter, faFacebookF, faGooglePlusG);
+library.add(
+  faAngleUp,
+  faAngleRight,
+  faBars,
+  faTwitter,
+  faFacebookF,
+  faGooglePlusG,
+  faEnvelope,
+  faGlobeEurope,
+  faPhoneAlt
+);
 
 const Layout: FunctionComponent<LayoutProps> = ({
   children,
@@ -68,7 +85,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
       <DesktopMenu />
       {pageTitle && <PageTitle title={pageTitle} />}
       {breadcrumbsData?.length ? <Breadcrumbs data={breadcrumbsData} /> : null}
-      <div className="container">{children}</div>
+      <div className="container light-container pt-5 pb-10">{children}</div>
       <Footer />
     </ThemeProvider>
   );

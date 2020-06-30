@@ -28,7 +28,7 @@ export interface Breadcrumbs {
 }
 
 export interface BreadcrumbsProps {
-  data?: Breadcrumbs[];
+  data: Breadcrumbs[];
 }
 
 export interface LayoutProps {
@@ -39,4 +39,9 @@ export interface LayoutProps {
 
 export interface PageTitleProps {
   title: string;
+}
+
+export interface ContentBoxProps {
+  title: string;
+  className?: string;
 }

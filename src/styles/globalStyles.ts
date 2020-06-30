@@ -23,13 +23,25 @@ h2 {
   font-size: 1.3125rem;
 }
 
+p {
+  ${tw`leading-7`}
+}
+
 .container {
   ${tw`w-full mx-auto px-4`};
   max-width: 1280px;
 }
 
+.light-container {
+  background-color: ${({ theme }) => theme.backgroundLight};
+}
+
 .font-secondary {
   font-family: 'Lato', sans-serif;
+}
+
+.text-color-primary {
+  color: ${({ theme }) => theme.primary}
 }
 
 @media (min-width: 576px) {
