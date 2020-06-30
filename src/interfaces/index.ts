@@ -50,8 +50,15 @@ export interface NewsletterFormValues {
   email: string;
 }
 
-export interface HowWeWorkData {
-  title: string;
-  slug: string;
-  html: string;
-}
+// export interface HowWeWorkData {
+//   title: string;
+//   slug: string;
+//   html: string;
+// }
+
+// export interface QualityAssuranceData {
+//   title: string;
+//   slug: string;
+//   html: string;
+//   image: string;
+// }

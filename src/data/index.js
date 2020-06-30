@@ -1,4 +1,4 @@
-exports.data = [
+exports.howWeWork = [
   {
     title: 'Assessment',
     slug: 'assessments',
@@ -95,5 +95,113 @@ exports.data = [
     needs and your financial situation and encourage you to discuss these with our team during
     your assessment.
   </p>`
+  }
+];
+
+exports.qualityAssurance = [
+  {
+    title: 'Regulations & Recruitment',
+    slug: 'regulations-and-recruitment',
+    image:
+      'http://www.generixcare.co.uk/images/pages/quality-assurance/generix-care-compliance.jpg',
+    html: `<h4>Regulation</h4>
+    <p>
+      GenerixCare is registered with and inspected by the Care Quality Commission <u>(CQC)</u>.
+      <a href="http://www.cqc.org.uk/location/1-2155383702/contact">
+        <strong>http://www.cqc.org.uk/location/1-2155383702/contact</strong>
+      </a>
+    </p>
+    <p>
+      GenerixCare is also a member of the United Kingdom Homecare Association (UKHCA) - the
+      professional association of home care providers by promoting high standards of care and
+      providing representation with national and regional policy-makers and regulators.
+    </p>
+  </div>
+  <br />
+  <div>
+    <h4>Recruitment</h4>
+    <p>
+      We place a high premium on delivering the best quality care and support services; and this
+      starts right from the point of recruitment. Our staff are referenced and fully vetted by
+      the Disclosure and Barring Service (DBS)
+    </p>`
+  },
+  {
+    title: 'Workforce Development',
+    slug: 'workforce-development',
+    image:
+      'http://www.generixcare.co.uk/images/pages/quality-assurance/generix-care-workforce-development-2.jpg',
+    html: `<p>
+    We provide a robust induction training programme for all of our carers based on the
+    standards jointly set by Skills for Care, Health Education England and Skills for Health
+    in the <u>Care Certificate</u> <strong>(
+    <a href="http://www.skillsforcare.org.uk/Standards/Care-Certificate/Care-Certificate.aspx">
+     http://www.skillsforcare.org.uk/Standards/Care-Certificate/Care-Certificate.aspx
+    </a>)</strong>
+  </p>
+  <p>
+    Our carers undertake hands-on training courses in moving and handling, work-based
+    shadowing as well as specialist placements at the Keech Hospice (Palliative &amp; End of
+    Life care). <br />
+    We are committed to having more Dementia Champions among our workforce to support our
+    commitment to our local Dementia Action Alliance
+  </p>
+  <p>
+    Alongside training and workforce development programmes, we are also committed to paying
+    our carers the National Living Wage as a minimum.
+  </p>
+  <p>
+    Our views on investing in our people is simply this - “high-performing companies strive to
+    create a great place for great people to do great work”-
+    <strong>
+      <em> Marilyn C. Nelson</em>
+    </strong>
+  </p>`
+  },
+  {
+    title: 'Monitoring and Feedback',
+    slug: 'monitoring-and-feedback',
+    image:
+      'http://www.generixcare.co.uk/images/pages/quality-assurance/generix-care-workforce-development-2.jpg',
+    html: `<p>
+    We maintain a work cycle of continuous improvement - conducting audits, staff reviews and
+    appraisals, spot checks and unannounced visits to ensure services are delivered to the
+    highest standards at all times.
+  </p>`
+  },
+  {
+    title: 'Partnerships and Alliances',
+    slug: 'partnership',
+    image:
+      'http://www.generixcare.co.uk/images/pages/quality-assurance/generix-care-workforce-development-2.jpg',
+    html: `<h4>United Kingdom Homecare Association (UKHCA)</h4>
+    <p>
+      We are registered with the United Kingdom Homecare Association (UKHCA) - the professional
+      association of home care providers by promoting high standards of care and providing
+      representation with national and regional policy-makers and regulators.
+    </p>
+  </div>
+  <br />
+  <div>
+    <h4>Luton Dementia Action Alliance</h4>
+    <p>
+      We are members of the
+       <a href="http://www.dementiaaction.org.uk/local_alliances/4449_luton_dementia_action_alliance">
+        Luton Dementia Action Alliance
+      </a>
+       to ensure best practice in dementia care for our clients. We have signed up to our local
+      dementia action alliance and have an action plan that aims to transform the quality of
+      life of people with dementia and their carers and continue to work towards becoming a
+      ‘dementia friendly community’
+    </p>
+  </div>
+  <br />
+  <div>
+    <h4>The Keech Hospice</h4>
+    <p>
+      The Keech Hospice provide our carers with fantastic training support including the The ABC
+      End of Life Care Education Programme which is in line with the Gold Standard Framework.
+      Our carers also have access to placements at the Hospice Intensive Palliative Unit.
+    </p>`
   }
 ];
