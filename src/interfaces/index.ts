@@ -62,3 +62,12 @@ export interface NewsletterFormValues {
 //   html: string;
 //   image: string;
 // }
+
+export interface AreasWeCoverData {
+  title: string;
+  areas?: AreasWeCoverData[];
+}
+
+export interface TableProps {
+  data: AreasWeCoverData[];
+}

@@ -7,8 +7,7 @@ const about: NavItems[] = [
 
 const services: NavItems[] = [
   { title: 'Adult Care', slug: '/services/care-support-for-adults' },
-  { title: 'Child Care', slug: '/services/care-support-for-children' },
-  { title: 'Areas We Cover', slug: '/services/areas-we-cover' }
+  { title: 'Child Care', slug: '/services/care-support-for-children' }
 ];
 
 const howWeWork: NavItems[] = [
@@ -31,5 +30,6 @@ export const navigation: NavItems[] = [
   { title: 'Services', slug: '/services', showInFooter: true, children: services },
   { title: 'How We Work', children: howWeWork },
   { title: 'Quality Assurance', children: qualityAssurance },
+  { title: 'Areas We Cover', slug: '/areas-we-cover', showInFooter: true },
   { title: 'Contact Us', slug: '/contact', showInFooter: true }
 ];
