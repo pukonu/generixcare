@@ -1,3 +1,11 @@
-export * from './Button';
-export * from './icons';
-export { default } from './theme';
+// content
+export { default as ContentBox } from './content/ContentBox';
+export { default as Layout } from './content/Layout';
+export { default as Slider } from './content/Slider';
+export { default as SlideItem } from './content/SlideItem';
+
+// forms
+export { default as NewsletterForm } from './forms/NewsletterForm';
+
+// surfaces
+export { default as Table } from './surfaces/Table';

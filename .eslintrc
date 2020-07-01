@@ -4,7 +4,10 @@
     "eslint-config-blvd/react",
     "prettier/@typescript-eslint",
     "prettier/react",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -16,6 +19,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["."]
+      }
     }
   },
   "rules": {
