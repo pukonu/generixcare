@@ -71,3 +71,17 @@ export interface AreasWeCoverData {
 export interface TableProps {
   data: AreasWeCoverData[];
 }
+
+export interface Slider {
+  title: string;
+  link: string;
+  image: string;
+}
+
+export interface SlideItemProps extends Slider {
+  index?: number;
+  count?: number;
+  goTo?: () => void;
+  nextSlide?: () => void;
+  prevSlide?: () => void;
+}

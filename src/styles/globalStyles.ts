@@ -60,6 +60,10 @@ p {
   color: ${({ theme }) => theme.primary}
 }
 
+.slick-active {
+  ${tw`z-10`}
+}
+
 @media (min-width: 576px) {
   h2 {
     font-size: 1.5rem;

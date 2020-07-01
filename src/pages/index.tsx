@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-import { ContentBox, Layout, NewsletterForm } from 'src/components';
+import { sliderData } from 'src/data/slider';
+import { ContentBox, Layout, NewsletterForm, Slider, SlideItem } from 'src/components';
 
 const Index = () => {
   const themeContext = useContext(ThemeContext);
@@ -9,6 +10,14 @@ const Index = () => {
 
   return (
     <Layout seoTitle="Home Page">
+      <div className="-mx-4 -mt-5">
+        <Slider>
+          {sliderData.map(({ title, link, image }) => (
+            <SlideItem key={title} title={title} link={link} image={image} />
+          ))}
+        </Slider>
+      </div>
+
       <blockquote className="py-10">
         <h1 className="leading-tight">
           In your home. Friendly, Personal, Dedicated to meeting your care needs

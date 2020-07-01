@@ -1,6 +1,8 @@
 // content
 export { default as ContentBox } from './content/ContentBox';
 export { default as Layout } from './content/Layout';
+export { default as Slider } from './content/Slider';
+export { default as SlideItem } from './content/SlideItem';
 
 // forms
 export { default as NewsletterForm } from './forms/NewsletterForm';

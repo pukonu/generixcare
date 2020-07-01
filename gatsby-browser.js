@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faAngleUp,
   faAngleRight,
+  faAngleLeft,
   faBars,
   faGlobeEurope,
   faPhoneAlt
@@ -17,10 +18,13 @@ import { theme } from 'src/styles/themes';
 import 'tailwindcss/dist/base.css';
 import 'tailwindcss/dist/components.css';
 import 'tailwindcss/dist/utilities.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 library.add(
   faAngleUp,
   faAngleRight,
+  faAngleLeft,
   faBars,
   faTwitter,
   faFacebookF,
