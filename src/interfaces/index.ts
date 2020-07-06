@@ -81,7 +81,7 @@ export interface Slider {
 export interface SlideItemProps extends Slider {
   index?: number;
   count?: number;
-  goTo?: () => void;
+  goTo?: (val: number) => void;
   nextSlide?: () => void;
   prevSlide?: () => void;
 }
