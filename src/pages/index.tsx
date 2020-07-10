@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 
 import { sliderData } from 'src/data/slider';
 import {
   ContentBox,
+  HighlightText,
   Layout,
   NewsletterContainer,
   NewsletterForm,
@@ -12,9 +12,6 @@ import {
 } from 'src/components';
 
 const Index = () => {
-  const themeContext = useContext(ThemeContext);
-  const { tertiaryDark, tertiaryLight } = themeContext;
-
   return (
     <Layout seoTitle="Home Page">
       <div className="-mx-4 -mt-5">
@@ -94,10 +91,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div
-        className="px-2 py-4 rounded-md mb-12"
-        style={{ backgroundColor: tertiaryLight, color: tertiaryDark }}
-      >
+      <HighlightText>
         <ul className="list-disc pl-4">
           <li className="mb-2">
             Our carers are fully referenced and CRB-checked giving you peace of mind and matched to
@@ -107,7 +101,7 @@ const Index = () => {
             We directly employ all care staff and fully support them with comprehensive training
           </li>
         </ul>
-      </div>
+      </HighlightText>
 
       <NewsletterContainer>
         <NewsletterForm />
