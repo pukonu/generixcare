@@ -2,11 +2,18 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { sliderData } from 'src/data/slider';
-import { ContentBox, Layout, NewsletterForm, Slider, SlideItem } from 'src/components';
+import {
+  ContentBox,
+  Layout,
+  NewsletterContainer,
+  NewsletterForm,
+  Slider,
+  SlideItem
+} from 'src/components';
 
 const Index = () => {
   const themeContext = useContext(ThemeContext);
-  const { tertiaryDark, tertiaryLight, backgroundDark } = themeContext;
+  const { tertiaryDark, tertiaryLight } = themeContext;
 
   return (
     <Layout seoTitle="Home Page">
@@ -102,9 +109,9 @@ const Index = () => {
         </ul>
       </div>
 
-      <div className="-mx-4 px-4 py-6" style={{ backgroundColor: backgroundDark }}>
+      <NewsletterContainer>
         <NewsletterForm />
-      </div>
+      </NewsletterContainer>
     </Layout>
   );
 };
