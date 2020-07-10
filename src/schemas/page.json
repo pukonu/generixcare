@@ -1,0 +1,79 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "UID"
+      }
+    },
+    "name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "name",
+        "placeholder": "Name of the page"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "sliding_hero": []
+        },
+        "choices": {
+          "sliding_hero": {
+            "type": "Slice",
+            "fieldset": "sliding_hero",
+            "description": "A sliding hero used for the main page",
+            "icon": "home",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "sliding_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "slide_image"
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "title",
+                  "placeholder": "Title in the hero slide"
+                }
+              },
+              "show_button": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide slide button",
+                  "placeholder_true": "show slide button",
+                  "default_value": true,
+                  "label": "show_button"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "button_label",
+                  "placeholder": "Label of the button"
+                }
+              },
+              "button_link": {
+                "type": "Text",
+                "config": {
+                  "label": "button_link",
+                  "placeholder": "Link for the button"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
