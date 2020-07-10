@@ -1,4 +1,5 @@
 const page = require('./src/schemas/page.json');
+const navigation = require('./src/schemas/navigation.json');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
@@ -12,7 +13,8 @@ module.exports = {
         repositoryName: `${process.env.PRISMIC_REPOSITORY}`,
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         schemas: {
-          page
+          page,
+          navigation
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`
