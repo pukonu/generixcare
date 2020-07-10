@@ -20,7 +20,10 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "sliding_hero": []
+          "sliding_hero": [],
+          "block_quote": [],
+          "highlight": [],
+          "newsletter_subscription": []
         },
         "choices": {
           "sliding_hero": {
@@ -71,6 +74,72 @@
                 }
               }
             }
+          },
+          "block_quote": {
+            "type": "Slice",
+            "fieldset": "block_quote",
+            "description": "Block quote",
+            "icon": "format_quote",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "Text",
+                "config": {
+                  "label": "content",
+                  "placeholder": "Content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "highlight": {
+            "type": "Slice",
+            "fieldset": "highlight",
+            "description": "Highlight rich text section",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "content",
+                  "placeholder": "Content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "newsletter_subscription": {
+            "type": "Slice",
+            "fieldset": "newsletter_subscription",
+            "description": "Newsletter subscription section",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": "Title"
+                }
+              },
+              "input_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "input_placeholder",
+                  "placeholder": "Input field placeholder"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "button_label",
+                  "placeholder": "Submit button label"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
