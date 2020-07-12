@@ -1,0 +1,47 @@
+import { BaseQueryType, PageContextType, TitleType, ImageType, ContentType } from './base';
+
+type PageSliceSlidingHeroItems = TitleType & {
+  show_button: boolean;
+  button_label: string;
+  button_link: string;
+  sliding_image: ImageType;
+};
+
+type PageSliceSlidingHero = {
+  id: string;
+  items: PageSliceSlidingHeroItems[];
+};
+
+type PageSliceBlockQuote = {
+  id: string;
+  primary: ContentType;
+};
+
+type PageSliceHighlight = {
+  id: string;
+  primary: ContentType;
+};
+
+type PageSliceNewsletter = {
+  id: string;
+  primary: TitleType & {
+    input_placeholder: string;
+    button_label: string;
+  };
+};
+
+type SliceType = 'sliding_hero' | 'block_quote' | 'highlight' | 'newsletter_subscription';
+
+type PageSectionTypes = { slice_type: SliceType } & (
+  | PageSliceSlidingHero
+  | PageSliceBlockQuote
+  | PageSliceHighlight
+  | PageSliceNewsletter
+);
+
+type PageType = {
+  name: string;
+  body: PageSectionTypes[];
+};
+
+export type GlobalPageType = BaseQueryType<PageType> & PageContextType;

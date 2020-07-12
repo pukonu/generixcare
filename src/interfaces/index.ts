@@ -1,4 +1,5 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { NavigationRootType } from 'src/models/graphql/navigation';
 
 export interface NavItems {
   title: string;
@@ -17,6 +18,10 @@ export interface HeaderProps {
   OpenMenu: () => void;
 }
 
+export interface FooterProps {
+  navItems: NavigationRootType[];
+}
+
 export interface MobileMenuProps {
   OpenMenu: () => void;
   isMenuOpen: boolean;
@@ -32,9 +37,11 @@ export interface BreadcrumbsProps {
 }
 
 export interface LayoutProps {
-  seoTitle: string;
   pageTitle?: string;
+  showHeader: boolean;
+  showBreadcrumbs: boolean;
   breadcrumbsData?: Breadcrumbs[];
+  menuItems: NavigationRootType[];
 }
 
 export interface PageTitleProps {

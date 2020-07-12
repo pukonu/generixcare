@@ -74,6 +74,24 @@
                   "default_value": true,
                   "label": "published"
                 }
+              },
+              "show_header": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide header",
+                  "placeholder_true": "show header",
+                  "default_value": true,
+                  "label": "show_header"
+                }
+              },
+              "show_breadcrumbs": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide breadcrumbs",
+                  "placeholder_true": "show breadcrumbs",
+                  "default_value": true,
+                  "label": "show_breadcrumbs"
+                }
               }
             },
             "repeat": {

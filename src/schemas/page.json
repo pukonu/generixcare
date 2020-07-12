@@ -39,7 +39,7 @@
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "slide_image"
+                  "label": "image"
                 }
               },
               "title": {
@@ -83,10 +83,11 @@
             "display": "list",
             "non-repeat": {
               "content": {
-                "type": "Text",
+                "type": "StructuredText",
                 "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6",
                   "label": "content",
-                  "placeholder": "Content"
+                  "placeholder": "Quote content"
                 }
               }
             },
@@ -112,8 +113,8 @@
           },
           "newsletter_subscription": {
             "type": "Slice",
-            "fieldset": "newsletter_subscription",
-            "description": "Newsletter subscription section",
+            "fieldset": "newsletter",
+            "description": "Newsletter section",
             "icon": "email",
             "display": "list",
             "non-repeat": {

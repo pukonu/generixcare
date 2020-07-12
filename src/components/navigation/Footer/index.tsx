@@ -2,22 +2,25 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { navigation } from 'src/data/navigation';
+import { FooterProps } from 'src/interfaces';
 import { FooterWrapper } from './styles';
 
-const navItems = navigation
-  .filter(({ showInFooter }) => !!showInFooter)
-  .map(({ title, slug }) => (
-    <li key={title} className="inline-block pr-4 md:pr-5 py-4">
-      <Link to={slug as string}>{title}</Link>
-    </li>
-  ));
+const Footer: FunctionComponent<FooterProps> = ({ navItems }) => {
+  const nav = navItems
+    .filter(({ primary }) => primary.path)
+    .map(({ primary }) => {
+      const { label, path } = primary;
+      return (
+        <li key={label} className="inline-block pr-4 md:pr-5 py-4">
+          <Link to={path}>{label}</Link>
+        </li>
+      );
+    });
 
-const Footer: FunctionComponent = () => {
   return (
     <FooterWrapper>
       <div className="container">
-        <ul className="text-center md:text-left">{navItems}</ul>
+        <ul className="text-center md:text-left">{nav}</ul>
       </div>
 
       <a href="#">

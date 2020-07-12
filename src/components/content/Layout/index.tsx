@@ -14,11 +14,13 @@ import PageTitle from '../PageTitle';
 const Layout: FunctionComponent<LayoutProps> = ({
   children,
   pageTitle,
-  seoTitle = '',
+  menuItems,
+  showHeader,
+  showBreadcrumbs,
   breadcrumbsData
 }) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
-
+  // console.log(menuItems);
   return (
     <>
       <Helmet>
@@ -41,7 +43,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
         <meta name="slurp" content="index, follow, archive" />
         <meta name="msnbot" content="index, follow, archive" />
 
-        <title>{seoTitle} | Generix Care Website</title>
+        <title>{pageTitle} | Generix Care Website</title>
 
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
 
@@ -55,12 +57,15 @@ const Layout: FunctionComponent<LayoutProps> = ({
         />
       </Helmet>
       <Header OpenMenu={() => OpenMenu(true)} />
+
       <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
       <DesktopMenu />
-      {pageTitle && <PageTitle title={pageTitle} />}
-      {breadcrumbsData?.length ? <Breadcrumbs data={breadcrumbsData} /> : null}
+
+      {!!pageTitle && showHeader ? <PageTitle title={pageTitle} /> : null}
+      {breadcrumbsData?.length && showBreadcrumbs ? <Breadcrumbs data={breadcrumbsData} /> : null}
+
       <div className="container light-container pt-5 pb-10">{children}</div>
-      <Footer />
+      <Footer navItems={menuItems} />
     </>
   );
 };
