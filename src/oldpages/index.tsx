@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  ContentBox,
-  HighlightText,
-  Layout,
-  NewsletterContainer,
-  NewsletterForm
-} from 'src/components';
+import { ContentBox, Layout } from 'src/components';
 
 const Index = () => {
   return (
@@ -73,10 +67,6 @@ const Index = () => {
           </ContentBox>
         </div>
       </div>
-
-      <NewsletterContainer>
-        <NewsletterForm />
-      </NewsletterContainer>
     </Layout>
   );
 };

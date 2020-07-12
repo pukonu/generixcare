@@ -23,7 +23,7 @@
           "sliding_hero": [],
           "block_quote": [],
           "highlight": [],
-          "newsletter_subscription": []
+          "newsletter": []
         },
         "choices": {
           "sliding_hero": {
@@ -111,10 +111,10 @@
             },
             "repeat": {}
           },
-          "newsletter_subscription": {
+          "newsletter": {
             "type": "Slice",
             "fieldset": "newsletter",
-            "description": "Newsletter section",
+            "description": "newsletter",
             "icon": "email",
             "display": "list",
             "non-repeat": {
@@ -129,14 +129,14 @@
                 "type": "Text",
                 "config": {
                   "label": "input_placeholder",
-                  "placeholder": "Input field placeholder"
+                  "placeholder": "Input placeholder"
                 }
               },
               "button_label": {
                 "type": "Text",
                 "config": {
                   "label": "button_label",
-                  "placeholder": "Submit button label"
+                  "placeholder": "Button label"
                 }
               }
             },

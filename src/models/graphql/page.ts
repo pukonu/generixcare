@@ -24,12 +24,12 @@ export type PageSliceBlockQuote = {
   primary: ContentType;
 };
 
-type PageSliceHighlight = {
+export type PageSliceHighlight = {
   id: string;
   primary: ContentType;
 };
 
-type PageSliceNewsletter = {
+export type PageSliceNewsletter = {
   id: string;
   primary: TitleType & {
     input_placeholder: string;
@@ -37,7 +37,7 @@ type PageSliceNewsletter = {
   };
 };
 
-type SliceType = 'sliding_hero' | 'block_quote' | 'highlight' | 'newsletter_subscription';
+type SliceType = 'sliding_hero' | 'block_quote' | 'highlight' | 'newsletter';
 
 type PageSectionTypes = { slice_type: SliceType } & (
   | PageSliceSlidingHero

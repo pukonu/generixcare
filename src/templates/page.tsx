@@ -9,10 +9,11 @@ import {
   GlobalPageType,
   PageSliceSlidingHero,
   PageSliceBlockQuote,
-  PageSliceHighlight
+  PageSliceHighlight,
+  PageSliceNewsletter
 } from 'src/models/graphql/page';
 
-import { Layout, Slider, Blockquote, HighlightText } from 'src/components';
+import { Layout, Slider, Blockquote, HighlightText, NewsletterContainer } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { menuItems, show_header, show_breadcrumbs } = pageContext;
@@ -35,7 +36,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
       {body.map((slice, index: number) => {
         const { slice_type } = slice;
         const sliceKey = `key__slice__${index}`;
-        // console.log(slice);
+        // console.log(slice_type);
 
         switch (slice_type) {
           case 'sliding_hero':
@@ -49,6 +50,10 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
           case 'highlight':
             const highlightSlice = slice as PageSliceHighlight;
             return <HighlightText key={sliceKey} {...highlightSlice} />;
+
+          case 'newsletter':
+            const newsletterSlice = slice as PageSliceNewsletter;
+            return <NewsletterContainer key={sliceKey} {...newsletterSlice} />;
 
           default:
             return <p key={`key__sliceDefault__${index}`} />;
@@ -106,8 +111,9 @@ export const query = graphql`
                   }
                 }
               }
-              ... on PrismicPageBodyNewsletterSubscription {
+              ... on PrismicPageBodyNewsletter {
                 id
+                slice_type
                 primary {
                   title
                   input_placeholder
