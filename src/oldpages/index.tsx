@@ -6,26 +6,12 @@ import {
   HighlightText,
   Layout,
   NewsletterContainer,
-  NewsletterForm,
-  Slider,
-  SlideItem
+  NewsletterForm
 } from 'src/components';
 
 const Index = () => {
   return (
     <Layout seoTitle="Home Page">
-      <Slider>
-        {sliderData.map(({ title, link, image }) => (
-          <SlideItem key={title} title={title} link={link} image={image} />
-        ))}
-      </Slider>
-
-      <blockquote className="py-10">
-        <h1 className="leading-tight">
-          In your home. Friendly, Personal, Dedicated to meeting your care needs
-        </h1>
-      </blockquote>
-
       <div className="flex flex-wrap">
         <div className="w-full lg:w-5/12 lg:pr-12">
           <ContentBox title="Our Customer Promise">

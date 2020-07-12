@@ -5,8 +5,8 @@
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 
-import { GlobalPageType, PageSliceSlidingHero } from 'src/models/graphql/page';
-import { Layout, Slider } from 'src/components';
+import { GlobalPageType, PageSliceSlidingHero, PageSliceBlockQuote } from 'src/models/graphql/page';
+import { Layout, Slider, Blockquote } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { menuItems, show_header, show_breadcrumbs } = pageContext;
@@ -19,7 +19,6 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { body, name } = prismicContent;
 
   //! add dynamic breadcrumbs
-
   return (
     <Layout
       pageTitle={name.text}
@@ -28,7 +27,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
       showBreadcrumbs={show_breadcrumbs}
     >
       {body.map((slice, index: number) => {
-        const { id, slice_type } = slice;
+        const { slice_type } = slice;
         const sliceKey = `key__slice__${index}`;
         // console.log(slice);
 
@@ -36,6 +35,10 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
           case 'sliding_hero':
             const slideSlice = slice as PageSliceSlidingHero;
             return <Slider key={sliceKey} {...slideSlice} />;
+
+          case 'block_quote':
+            const blockquoteSlice = slice as PageSliceBlockQuote;
+            return <Blockquote key={sliceKey} {...blockquoteSlice} />;
 
           default:
             return <p key={`key__sliceDefault__${index}`} />;

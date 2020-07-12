@@ -19,7 +19,7 @@ export type PageSliceSlidingHero = {
   items: PageSliceSlidingHeroItems[];
 };
 
-type PageSliceBlockQuote = {
+export type PageSliceBlockQuote = {
   id: string;
   primary: ContentType;
 };

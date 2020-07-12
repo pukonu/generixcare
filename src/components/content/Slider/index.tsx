@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/camelcase */
 import React, { FunctionComponent, useState } from 'react';
 import SlickSlider from 'react-slick';
@@ -21,7 +22,7 @@ const Slider: FunctionComponent<PageSliceSlidingHero> = ({ items }) => {
 
   const settings = {
     ...plainSettings,
-    beforeChange: (_, next: number) => setIndex(next)
+    beforeChange: (_: any, next: number) => setIndex(next)
   };
 
   return (
