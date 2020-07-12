@@ -1,4 +1,11 @@
-import { BaseQueryType, PageContextType, TitleType, ImageType, ContentType } from './base';
+import {
+  BaseQueryType,
+  PageContextType,
+  PrismicTextType,
+  TitleType,
+  ImageType,
+  ContentType
+} from './base';
 
 type PageSliceSlidingHeroItems = TitleType & {
   show_button: boolean;
@@ -7,7 +14,7 @@ type PageSliceSlidingHeroItems = TitleType & {
   sliding_image: ImageType;
 };
 
-type PageSliceSlidingHero = {
+export type PageSliceSlidingHero = {
   id: string;
   items: PageSliceSlidingHeroItems[];
 };
@@ -40,7 +47,7 @@ type PageSectionTypes = { slice_type: SliceType } & (
 );
 
 type PageType = {
-  name: string;
+  name: PrismicTextType;
   body: PageSectionTypes[];
 };
 

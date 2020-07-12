@@ -21,7 +21,7 @@ export type PageContextType = {
 };
 
 // prismic types
-type PrismicTextType = {
+export type PrismicTextType = {
   text: string;
 };
 

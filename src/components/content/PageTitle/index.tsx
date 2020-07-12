@@ -8,7 +8,7 @@ const PageTitle: FunctionComponent<PageTitleProps> = ({ title }) => {
   return (
     <PageTitleWrapper bckImg={gradiant}>
       <div className="container">
-        <h2 className="title font-secondary capitalize">{title}</h2>
+        <h2 className="title font-secondary">{title}</h2>
       </div>
     </PageTitleWrapper>
   );

@@ -49,7 +49,7 @@ const SlideItem: FunctionComponent<SlideItemProps> = ({
         </div>
       </div>
 
-      <img src={image} alt={title} />
+      <img src={image.url} alt={image.alt} />
     </SlideItemWrapper>
   );
 };

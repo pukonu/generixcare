@@ -14,13 +14,11 @@ import {
 const Index = () => {
   return (
     <Layout seoTitle="Home Page">
-      <div className="-mx-4 -mt-5">
-        <Slider>
-          {sliderData.map(({ title, link, image }) => (
-            <SlideItem key={title} title={title} link={link} image={image} />
-          ))}
-        </Slider>
-      </div>
+      <Slider>
+        {sliderData.map(({ title, link, image }) => (
+          <SlideItem key={title} title={title} link={link} image={image} />
+        ))}
+      </Slider>
 
       <blockquote className="py-10">
         <h1 className="leading-tight">

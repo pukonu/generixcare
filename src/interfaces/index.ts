@@ -1,5 +1,6 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { NavigationRootType } from 'src/models/graphql/navigation';
+import { ImageType } from 'src/models/graphql/base';
 
 export interface NavItems {
   title: string;
@@ -87,7 +88,7 @@ export interface TableProps {
 export interface Slider {
   title: string;
   link: string;
-  image: string;
+  image: ImageType;
 }
 
 export interface SlideItemProps extends Slider {

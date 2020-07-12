@@ -1,5 +1,9 @@
-import React, { FunctionComponent, useState, Children, isValidElement, cloneElement } from 'react';
+/* eslint-disable @typescript-eslint/camelcase */
+import React, { FunctionComponent, useState } from 'react';
 import SlickSlider from 'react-slick';
+
+import { PageSliceSlidingHero } from 'src/models/graphql/page';
+import SlideItem from '../SlideItem';
 
 const plainSettings = {
   speed: 500,
@@ -11,10 +15,9 @@ const plainSettings = {
   slidesToScroll: 1
 };
 
-const Slider: FunctionComponent = ({ children }) => {
+const Slider: FunctionComponent<PageSliceSlidingHero> = ({ items }) => {
   const [ref, setRef] = useState<any>(null);
   const [index, setIndex] = useState<number>(0);
-  const count = Children.count(children);
 
   const settings = {
     ...plainSettings,
@@ -22,23 +25,27 @@ const Slider: FunctionComponent = ({ children }) => {
   };
 
   return (
-    <div className="max-w-full overflow-hidden">
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <SlickSlider ref={(slickEl) => setRef(slickEl)} {...settings}>
-        {Children.map(children, (child) => {
-          if (isValidElement(child)) {
-            return cloneElement(child, {
-              count,
-              index,
-              goTo: ref?.slickGoTo,
-              nextSlide: ref?.slickNext,
-              prevSlide: ref?.slickPrev
-            });
-          }
-
-          return null;
-        })}
-      </SlickSlider>
+    <div className="-mx-4 -mt-5">
+      <div className="max-w-full overflow-hidden">
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <SlickSlider ref={(slickEl) => setRef(slickEl)} {...settings}>
+          {items.map(({ title, button_link, sliding_image }, i: number) => {
+            return (
+              <SlideItem
+                key={i}
+                index={index}
+                title={title.text}
+                link={button_link}
+                count={items.length}
+                goTo={ref?.slickGoTo}
+                image={sliding_image}
+                nextSlide={ref?.slickNext}
+                prevSlide={ref?.slickPrev}
+              />
+            );
+          })}
+        </SlickSlider>
+      </div>
     </div>
   );
 };
