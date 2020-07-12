@@ -29,6 +29,7 @@ export interface DesktopMenuProps {
 export interface MobileMenuProps {
   OpenMenu: () => void;
   isMenuOpen: boolean;
+  navItems: NavigationRootType[];
 }
 
 export interface Breadcrumbs {

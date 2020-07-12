@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 
 import favicon from 'src/images/favicon.png';
@@ -20,7 +20,8 @@ const Layout: FunctionComponent<LayoutProps> = ({
   breadcrumbsData
 }) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
-  // console.log(menuItems);
+  const menuHandler = useCallback(() => OpenMenu(false), []);
+
   return (
     <>
       <Helmet>
@@ -58,7 +59,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
       </Helmet>
       <Header OpenMenu={() => OpenMenu(true)} />
 
-      <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
+      <MobileMenu navItems={menuItems} OpenMenu={menuHandler} isMenuOpen={isMenuOpen} />
       <DesktopMenu navItems={menuItems} />
 
       {!!pageTitle && showHeader ? <PageTitle title={pageTitle} /> : null}

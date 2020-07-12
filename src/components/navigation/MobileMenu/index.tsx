@@ -3,25 +3,26 @@ import { Link } from 'gatsby';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 import { MobileMenuProps } from 'src/interfaces';
-import { navigation } from 'src/data/navigation';
+
 import { MobileMenuWrapper } from './styles';
 
-const navItems = navigation.map(({ title, slug, children }) => {
-  const href = slug || children?.[0].slug || '/';
+const MobileMenu: FunctionComponent<MobileMenuProps> = ({ OpenMenu, isMenuOpen, navItems }) => {
+  const nav = navItems.map(({ primary, items }) => {
+    const { label, path } = primary;
+    const href = path || items?.[0].path || '/';
 
-  return (
-    <li key={title}>
-      <Link to={href}>{title}</Link>
-    </li>
-  );
-});
+    return (
+      <li key={label}>
+        <Link to={href}>{label}</Link>
+      </li>
+    );
+  });
 
-const MobileMenu: FunctionComponent<MobileMenuProps> = ({ OpenMenu, isMenuOpen }) => {
   return (
     <MobileMenuWrapper className={isMenuOpen ? 'open' : ''}>
       <OutsideClickHandler disabled={!isMenuOpen} onOutsideClick={OpenMenu}>
         <div className="menu-wrapper">
-          <ul className="menu-inner-wrapper">{navItems}</ul>
+          <ul className="menu-inner-wrapper">{nav}</ul>
         </div>
       </OutsideClickHandler>
     </MobileMenuWrapper>
