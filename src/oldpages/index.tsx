@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { sliderData } from 'src/data/slider';
 import {
   ContentBox,
   HighlightText,
@@ -74,18 +73,6 @@ const Index = () => {
           </ContentBox>
         </div>
       </div>
-
-      <HighlightText>
-        <ul className="list-disc pl-4">
-          <li className="mb-2">
-            Our carers are fully referenced and CRB-checked giving you peace of mind and matched to
-            meet your specific needs
-          </li>
-          <li>
-            We directly employ all care staff and fully support them with comprehensive training
-          </li>
-        </ul>
-      </HighlightText>
 
       <NewsletterContainer>
         <NewsletterForm />
