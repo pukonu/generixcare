@@ -59,12 +59,13 @@ const Layout: FunctionComponent<LayoutProps> = ({
       <Header OpenMenu={() => OpenMenu(true)} />
 
       <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
-      <DesktopMenu />
+      <DesktopMenu navItems={menuItems} />
 
       {!!pageTitle && showHeader ? <PageTitle title={pageTitle} /> : null}
       {breadcrumbsData?.length && showBreadcrumbs ? <Breadcrumbs data={breadcrumbsData} /> : null}
 
       <div className="container light-container pt-5 pb-10">{children}</div>
+
       <Footer navItems={menuItems} />
     </>
   );

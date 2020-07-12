@@ -22,6 +22,10 @@ export interface FooterProps {
   navItems: NavigationRootType[];
 }
 
+export interface DesktopMenuProps {
+  navItems: NavigationRootType[];
+}
+
 export interface MobileMenuProps {
   OpenMenu: () => void;
   isMenuOpen: boolean;
