@@ -45,12 +45,12 @@ export type HomeContentType = {
 };
 
 export type ContactType = {
-  address?: PrismicHtmlType;
+  address?: PrismicTextType & PrismicHtmlType;
   google_map?: string;
   website?: string;
   email?: string;
   phone?: string;
-  opening_hours?: PrismicHtmlType;
+  opening_hours?: PrismicTextType & PrismicHtmlType;
   job_openings?: PrismicHtmlType;
   twitter?: PrismicExternalLinkType;
   facebook?: PrismicExternalLinkType;

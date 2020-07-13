@@ -18,6 +18,7 @@ import {
   Layout,
   Slider,
   Blockquote,
+  Contact,
   HighlightText,
   HomeContent,
   NewsletterContainer
@@ -66,6 +67,9 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
             switch (componentSlice.primary.component) {
               case 'home_content':
                 return <HomeContent key={componentKey} {...{ data }} />;
+
+              case 'contact':
+                return <Contact key={componentKey} {...prismicContact} />;
 
               default:
                 return <p key={componentKey} />;
@@ -182,6 +186,7 @@ export const query = graphql`
         node {
           data {
             address {
+              text
               html
             }
             google_map
@@ -189,6 +194,7 @@ export const query = graphql`
             email
             phone
             opening_hours {
+              text
               html
             }
             job_openings {

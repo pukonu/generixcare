@@ -1,5 +1,6 @@
 // content
 export { default as Blockquote } from './content/Blockquote';
+export { default as Contact } from './content/Contact';
 export { default as ContentBox } from './content/ContentBox';
 export { default as HomeContent } from './content/HomeContent';
 export { default as Layout } from './content/Layout';
