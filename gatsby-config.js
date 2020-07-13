@@ -14,7 +14,8 @@ module.exports = {
         schemas: {
           page: require('./src/schemas/page.json'),
           home_content: require('./src/schemas/home_content.json'),
-          contact: require('./src/schemas/contact.json')
+          contact: require('./src/schemas/contact.json'),
+          areas: require('./src/schemas/areas.json')
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`

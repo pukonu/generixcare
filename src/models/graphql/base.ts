@@ -1,5 +1,9 @@
 // query
-type QueryType = 'allPrismicPage' | 'allPrismicHomeContent' | 'allPrismicContact';
+type QueryType =
+  | 'allPrismicPage'
+  | 'allPrismicHomeContent'
+  | 'allPrismicContact'
+  | 'allPrismicAreas';
 
 type BaseNodeType<T> = {
   node: {

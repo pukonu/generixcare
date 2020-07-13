@@ -57,10 +57,16 @@ export type ContactType = {
   google_plus?: PrismicExternalLinkType;
 };
 
+export type AreaType = {
+  image?: ImageType;
+  items?: { borough: string; towns: string }[];
+  name?: string;
+};
+
 export type PageSliceComponents = {
   id: string;
   primary: {
-    component: 'home_content' | 'contact';
+    component: 'home_content' | 'contact' | 'areas';
   };
 };
 
@@ -82,4 +88,5 @@ type PageType = {
 export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
   BaseQueryType<ContactType> &
+  BaseQueryType<AreaType> &
   PageContextType;

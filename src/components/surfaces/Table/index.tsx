@@ -13,7 +13,7 @@ const Table: FunctionComponent<TableProps> = ({ data }) => {
         {chunkedData.map((item, i) => {
           return (
             <tr key={i}>
-              {item.map(({ title }) => {
+              {item.map((title) => {
                 return <td key={title}>{title}</td>;
               })}
             </tr>

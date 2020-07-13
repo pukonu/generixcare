@@ -1,4 +1,5 @@
 // content
+export { default as Areas } from './content/Areas';
 export { default as Blockquote } from './content/Blockquote';
 export { default as Contact } from './content/Contact';
 export { default as ContentBox } from './content/ContentBox';

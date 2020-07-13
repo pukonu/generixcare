@@ -5,7 +5,7 @@ import { GlobalPageType } from 'src/models/graphql/page';
 import { ContentBox } from 'src/components';
 
 const HomeContent: FunctionComponent<GlobalPageType> = ({ data }) => {
-  const prismicContent = data?.allPrismicHomeContent.edges[0]?.node.data;
+  const prismicContent = data?.allPrismicHomeContent?.edges[0]?.node?.data;
 
   if (!prismicContent) return null;
   const { items } = prismicContent;

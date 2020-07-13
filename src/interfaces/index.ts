@@ -82,7 +82,7 @@ export interface AreasWeCoverData {
 }
 
 export interface TableProps {
-  data: AreasWeCoverData[];
+  data: string[];
 }
 
 export interface Slider {

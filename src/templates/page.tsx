@@ -15,6 +15,7 @@ import {
 } from 'src/models/graphql/page';
 
 import {
+  Areas,
   Layout,
   Slider,
   Blockquote,
@@ -30,7 +31,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
-  // console.log(prismicContact);
+  // console.log(data);
 
   if (!prismicContent) return null;
 
@@ -70,6 +71,9 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
               case 'contact':
                 return <Contact key={componentKey} {...prismicContact} />;
+
+              case 'areas':
+                return <Areas key={componentKey} {...{ data }} />;
 
               default:
                 return <p key={componentKey} />;
@@ -208,6 +212,24 @@ export const query = graphql`
             }
             google_plus {
               url
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicAreas {
+      edges {
+        node {
+          data {
+            name
+            image {
+              url
+              alt
+            }
+            items {
+              borough
+              towns
             }
           }
         }
