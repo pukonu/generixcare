@@ -23,7 +23,8 @@
           "sliding_hero": [],
           "block_quote": [],
           "highlight": [],
-          "newsletter": []
+          "newsletter": [],
+          "components": []
         },
         "choices": {
           "sliding_hero": {
@@ -137,6 +138,24 @@
                 "config": {
                   "label": "button_label",
                   "placeholder": "Button label"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "components": {
+            "type": "Slice",
+            "fieldset": "components",
+            "description": "Component selection",
+            "icon": "account_balance",
+            "display": "grid",
+            "non-repeat": {
+              "component": {
+                "type": "Select",
+                "config": {
+                  "options": ["home_content"],
+                  "label": "component",
+                  "placeholder": "Select a component"
                 }
               }
             },

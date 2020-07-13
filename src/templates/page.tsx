@@ -10,10 +10,18 @@ import {
   PageSliceSlidingHero,
   PageSliceBlockQuote,
   PageSliceHighlight,
-  PageSliceNewsletter
+  PageSliceNewsletter,
+  PageSliceComponents
 } from 'src/models/graphql/page';
 
-import { Layout, Slider, Blockquote, HighlightText, NewsletterContainer } from 'src/components';
+import {
+  Layout,
+  Slider,
+  Blockquote,
+  HighlightText,
+  HomeContent,
+  NewsletterContainer
+} from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { menuItems, show_header, show_breadcrumbs } = pageContext;
@@ -36,7 +44,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
       {body.map((slice, index: number) => {
         const { slice_type } = slice;
         const sliceKey = `key__slice__${index}`;
-        // console.log(slice_type);
+        // console.log(data);
 
         switch (slice_type) {
           case 'sliding_hero':
@@ -46,6 +54,17 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
           case 'block_quote':
             const blockquoteSlice = slice as PageSliceBlockQuote;
             return <Blockquote key={sliceKey} {...blockquoteSlice} />;
+
+          case 'components':
+            const componentKey = sliceKey;
+            const componentSlice = slice as PageSliceComponents;
+            switch (componentSlice.primary.component) {
+              case 'home_content':
+                return <HomeContent key={componentKey} {...{ data }} />;
+
+              default:
+                return <p key={componentKey} />;
+            }
 
           case 'highlight':
             const highlightSlice = slice as PageSliceHighlight;
@@ -119,6 +138,33 @@ export const query = graphql`
                   input_placeholder
                   button_label
                 }
+              }
+              ... on PrismicPageBodyComponents {
+                slice_type
+                primary {
+                  component
+                }
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicHomeContent {
+      edges {
+        node {
+          data {
+            items {
+              title
+              image {
+                url
+                alt
+              }
+              content {
+                text
+                html
               }
             }
           }

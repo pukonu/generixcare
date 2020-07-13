@@ -9,4 +9,8 @@ export const ContentBoxWrapper = styled.div`
     color: ${({ theme }) => theme.primary};
     border-bottom-color: rgba(0, 0, 0, 0.075);
   }
+
+  ul {
+    ${tw`leading-7 list-disc pl-4`}
+  }
 `;

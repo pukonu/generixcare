@@ -1,3 +1,4 @@
+import { ContentBoxProps } from 'src/interfaces';
 import {
   BaseQueryType,
   PageContextType,
@@ -37,13 +38,25 @@ export type PageSliceNewsletter = {
   };
 };
 
-type SliceType = 'sliding_hero' | 'block_quote' | 'highlight' | 'newsletter';
+export type HomeContentType = {
+  items: ContentBoxProps[];
+};
+
+export type PageSliceComponents = {
+  id: string;
+  primary: {
+    component: 'home_content';
+  };
+};
+
+type SliceType = 'sliding_hero' | 'block_quote' | 'highlight' | 'newsletter' | 'components';
 
 type PageSectionTypes = { slice_type: SliceType } & (
   | PageSliceSlidingHero
   | PageSliceBlockQuote
   | PageSliceHighlight
   | PageSliceNewsletter
+  | PageSliceComponents
 );
 
 type PageType = {
@@ -51,4 +64,6 @@ type PageType = {
   body: PageSectionTypes[];
 };
 
-export type GlobalPageType = BaseQueryType<PageType> & PageContextType;
+export type GlobalPageType = BaseQueryType<PageType> &
+  BaseQueryType<HomeContentType> &
+  PageContextType;

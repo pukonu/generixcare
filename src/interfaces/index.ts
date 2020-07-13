@@ -1,6 +1,6 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { NavigationRootType } from 'src/models/graphql/navigation';
-import { ImageType } from 'src/models/graphql/base';
+import { ImageType, TitleType, ContentType } from 'src/models/graphql/base';
 
 export interface NavItems {
   title: string;
@@ -54,10 +54,10 @@ export interface PageTitleProps {
   title: string;
 }
 
-export interface ContentBoxProps {
+export type ContentBoxProps = ContentType & {
   title: string;
-  className?: string;
-}
+  image?: ImageType;
+};
 
 export interface NewsletterFormValues {
   email: string;

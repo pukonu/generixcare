@@ -1,5 +1,5 @@
 // query
-type QueryType = 'allPrismicPage';
+type QueryType = 'allPrismicPage' | 'allPrismicHomeContent';
 
 type BaseNodeType<T> = {
   node: {
