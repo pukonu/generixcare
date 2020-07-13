@@ -4,6 +4,7 @@ export { default as Blockquote } from './content/Blockquote';
 export { default as Contact } from './content/Contact';
 export { default as ContentBox } from './content/ContentBox';
 export { default as HomeContent } from './content/HomeContent';
+export { default as HowWeWork } from './content/HowWeWork';
 export { default as Layout } from './content/Layout';
 export { default as Slider } from './content/Slider';
 export { default as SlideItem } from './content/SlideItem';

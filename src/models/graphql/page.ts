@@ -45,12 +45,12 @@ export type HomeContentType = {
 };
 
 export type ContactType = {
-  address?: PrismicTextType & PrismicHtmlType;
+  address?: ContentType;
   google_map?: string;
   website?: string;
   email?: string;
   phone?: string;
-  opening_hours?: PrismicTextType & PrismicHtmlType;
+  opening_hours?: ContentType;
   job_openings?: PrismicHtmlType;
   twitter?: PrismicExternalLinkType;
   facebook?: PrismicExternalLinkType;
@@ -63,10 +63,14 @@ export type AreaType = {
   name?: string;
 };
 
+export type HowWeWorkType = {
+  name: string;
+} & ContentType;
+
 export type PageSliceComponents = {
   id: string;
   primary: {
-    component: 'home_content' | 'contact' | 'areas';
+    component: 'home_content' | 'contact' | 'areas' | 'how_we_work';
   };
 };
 
@@ -89,4 +93,5 @@ export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
   BaseQueryType<ContactType> &
   BaseQueryType<AreaType> &
+  BaseQueryType<HowWeWorkType> &
   PageContextType;

@@ -3,7 +3,8 @@ type QueryType =
   | 'allPrismicPage'
   | 'allPrismicHomeContent'
   | 'allPrismicContact'
-  | 'allPrismicAreas';
+  | 'allPrismicAreas'
+  | 'allPrismicHowWeWork';
 
 type BaseNodeType<T> = {
   node: {

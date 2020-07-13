@@ -22,6 +22,7 @@ import {
   Contact,
   HighlightText,
   HomeContent,
+  HowWeWork,
   NewsletterContainer
 } from 'src/components';
 
@@ -31,7 +32,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
-  // console.log(data);
+  // console.log(pageContext);
 
   if (!prismicContent) return null;
 
@@ -75,6 +76,10 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
               case 'areas':
                 return <Areas key={componentKey} {...{ data }} />;
 
+              case 'how_we_work':
+                const prismicHowWeWork = data?.allPrismicHowWeWork?.edges[0]?.node?.data;
+                return <HowWeWork key={componentKey} {...prismicHowWeWork} />;
+
               default:
                 return <p key={componentKey} />;
             }
@@ -97,7 +102,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 export default Page;
 
 export const query = graphql`
-  query PageQuery($page: String) {
+  query PageQuery($page: String, $uid: String) {
     allPrismicPage(filter: { uid: { eq: $page } }) {
       edges {
         node {
@@ -230,6 +235,20 @@ export const query = graphql`
             items {
               borough
               towns
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicHowWeWork(filter: { uid: { eq: $uid } }) {
+      edges {
+        node {
+          data {
+            name
+            content {
+              html
+              text
             }
           }
         }
