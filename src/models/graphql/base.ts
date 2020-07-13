@@ -1,5 +1,5 @@
 // query
-type QueryType = 'allPrismicPage' | 'allPrismicHomeContent';
+type QueryType = 'allPrismicPage' | 'allPrismicHomeContent' | 'allPrismicContact';
 
 type BaseNodeType<T> = {
   node: {
@@ -25,8 +25,12 @@ export type PrismicTextType = {
   text: string;
 };
 
-type PrismicHtmlType = {
+export type PrismicHtmlType = {
   html: string;
+};
+
+export type PrismicExternalLinkType = {
+  url: string;
 };
 
 // generix types

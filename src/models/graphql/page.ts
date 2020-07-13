@@ -3,6 +3,8 @@ import {
   BaseQueryType,
   PageContextType,
   PrismicTextType,
+  PrismicHtmlType,
+  PrismicExternalLinkType,
   TitleType,
   ImageType,
   ContentType
@@ -42,10 +44,23 @@ export type HomeContentType = {
   items: ContentBoxProps[];
 };
 
+export type ContactType = {
+  address?: PrismicHtmlType;
+  google_map?: string;
+  website?: string;
+  email?: string;
+  phone?: string;
+  opening_hours?: PrismicHtmlType;
+  job_openings?: PrismicHtmlType;
+  twitter?: PrismicExternalLinkType;
+  facebook?: PrismicExternalLinkType;
+  google_plus?: PrismicExternalLinkType;
+};
+
 export type PageSliceComponents = {
   id: string;
   primary: {
-    component: 'home_content';
+    component: 'home_content' | 'contact';
   };
 };
 
@@ -66,4 +81,5 @@ type PageType = {
 
 export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
+  BaseQueryType<ContactType> &
   PageContextType;

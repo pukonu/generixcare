@@ -153,7 +153,7 @@
               "component": {
                 "type": "Select",
                 "config": {
-                  "options": ["home_content"],
+                  "options": ["home_content", "contact"],
                   "label": "component",
                   "placeholder": "Select a component"
                 }

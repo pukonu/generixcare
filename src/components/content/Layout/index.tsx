@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { FunctionComponent, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -9,18 +10,26 @@ import Breadcrumbs from 'src/components/navigation/Breadcrumbs';
 import Footer from 'src/components/navigation/Footer';
 
 import { LayoutProps } from 'src/interfaces';
+import { ContactType } from 'src/models/graphql/page';
 import PageTitle from '../PageTitle';
 
-const Layout: FunctionComponent<LayoutProps> = ({
+const Layout: FunctionComponent<
+  LayoutProps & Pick<ContactType, 'twitter' | 'facebook' | 'google_plus'>
+> = ({
+  twitter,
   children,
+  facebook,
   pageTitle,
   menuItems,
   showHeader,
+  google_plus,
   showBreadcrumbs,
   breadcrumbsData
 }) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
-  const menuHandler = useCallback(() => OpenMenu(false), []);
+
+  const menuHandlerTrue = useCallback(() => OpenMenu(true), []);
+  const menuHandlerFalse = useCallback(() => OpenMenu(false), []);
 
   return (
     <>
@@ -57,9 +66,14 @@ const Layout: FunctionComponent<LayoutProps> = ({
           rel="stylesheet"
         />
       </Helmet>
-      <Header OpenMenu={() => OpenMenu(true)} />
+      <Header
+        twitter={twitter}
+        facebook={facebook}
+        google_plus={google_plus}
+        OpenMenu={menuHandlerTrue}
+      />
 
-      <MobileMenu navItems={menuItems} OpenMenu={menuHandler} isMenuOpen={isMenuOpen} />
+      <MobileMenu navItems={menuItems} OpenMenu={menuHandlerFalse} isMenuOpen={isMenuOpen} />
       <DesktopMenu navItems={menuItems} />
 
       {!!pageTitle && showHeader ? <PageTitle title={pageTitle} /> : null}

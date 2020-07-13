@@ -27,7 +27,9 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { menuItems, show_header, show_breadcrumbs } = pageContext;
   const memoizedMenu = useMemo(() => menuItems, []);
 
-  const prismicContent = data?.allPrismicPage.edges[0]?.node.data;
+  const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
+  const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
+  // console.log(prismicContact);
 
   if (!prismicContent) return null;
 
@@ -39,7 +41,10 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
       pageTitle={name.text}
       showHeader={show_header}
       menuItems={memoizedMenu}
+      twitter={prismicContact.twitter}
       showBreadcrumbs={show_breadcrumbs}
+      facebook={prismicContact.facebook}
+      google_plus={prismicContact.google_plus}
     >
       {body.map((slice, index: number) => {
         const { slice_type } = slice;
@@ -166,6 +171,37 @@ export const query = graphql`
                 text
                 html
               }
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicContact {
+      edges {
+        node {
+          data {
+            address {
+              html
+            }
+            google_map
+            website
+            email
+            phone
+            opening_hours {
+              html
+            }
+            job_openings {
+              html
+            }
+            twitter {
+              url
+            }
+            facebook {
+              url
+            }
+            google_plus {
+              url
             }
           }
         }

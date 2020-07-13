@@ -13,7 +13,8 @@ module.exports = {
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         schemas: {
           page: require('./src/schemas/page.json'),
-          home_content: require('./src/schemas/home_content.json')
+          home_content: require('./src/schemas/home_content.json'),
+          contact: require('./src/schemas/contact.json')
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`

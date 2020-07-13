@@ -17,8 +17,6 @@ const HomeContent: FunctionComponent<GlobalPageType> = ({ data }) => {
 
   const rightEl = items.slice(halfLength).map((item) => <ContentBox key={item.title} {...item} />);
 
-  console.log(prismicContent);
-
   return (
     <div className="flex flex-wrap">
       <div className="w-full lg:w-5/12 lg:pr-12">{!!leftEl.length && leftEl}</div>

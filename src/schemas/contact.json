@@ -1,0 +1,91 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "UID"
+      }
+    },
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "name",
+        "placeholder": "Name of page"
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "address",
+        "placeholder": "Office address"
+      }
+    },
+    "google_map": {
+      "type": "Text",
+      "config": {
+        "label": "google_map",
+        "placeholder": "Google maps iframe src"
+      }
+    },
+    "website": {
+      "type": "Text",
+      "config": {
+        "label": "website",
+        "placeholder": "Website"
+      }
+    },
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "email",
+        "placeholder": "Email"
+      }
+    },
+    "phone": {
+      "type": "Text",
+      "config": {
+        "label": "phone",
+        "placeholder": "Phone"
+      }
+    },
+    "opening_hours": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "label": "opening_hours",
+        "placeholder": "Opening hours"
+      }
+    },
+    "job_openings": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed, list-item, o-list-item, o-list-item",
+        "label": "job_openings",
+        "placeholder": "Job openings"
+      }
+    },
+    "twitter": {
+      "type": "Link",
+      "config": {
+        "label": "twitter",
+        "placeholder": "Twitter URL"
+      }
+    },
+    "facebook": {
+      "type": "Link",
+      "config": {
+        "label": "facebook",
+        "placeholder": "Facebook URL"
+      }
+    },
+    "google_plus": {
+      "type": "Link",
+      "config": {
+        "label": "google_plus",
+        "placeholder": "Google+ URL"
+      }
+    }
+  }
+}

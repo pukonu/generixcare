@@ -1,21 +1,16 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from 'src/images/logo.png';
 import { HeaderProps } from 'src/interfaces';
-import { socialLinks } from 'src/data/socialLinks';
+import { ContactType } from 'src/models/graphql/page';
 import { HeaderWrapper } from './styles';
 
-const links = socialLinks.map(({ platform, url, icon }) => (
-  <li key={platform} className="inline-block mx-1">
-    <a className="link-wrapper" href={url}>
-      <FontAwesomeIcon icon={['fab', icon]} />
-    </a>
-  </li>
-));
-
-const Header: FunctionComponent<HeaderProps> = ({ OpenMenu }) => {
+const Header: FunctionComponent<
+  HeaderProps & Pick<ContactType, 'twitter' | 'facebook' | 'google_plus'>
+> = ({ twitter, facebook, google_plus, OpenMenu }) => {
   return (
     <HeaderWrapper>
       <div className="container">
@@ -34,7 +29,31 @@ const Header: FunctionComponent<HeaderProps> = ({ OpenMenu }) => {
             </button>
           </div>
           <div className="w-full md:w-auto pt-2 md:pt-0 md:order-2">
-            <ul className="text-center px-4 lg:px-0">{links}</ul>
+            <ul className="text-center px-4 lg:px-0">
+              {!!twitter && (
+                <li className="inline-block mx-1">
+                  <a className="link-wrapper" href={twitter.url}>
+                    <FontAwesomeIcon icon={['fab', 'twitter']} />
+                  </a>
+                </li>
+              )}
+
+              {!!facebook && (
+                <li className="inline-block mx-1">
+                  <a className="link-wrapper" href={facebook.url}>
+                    <FontAwesomeIcon icon={['fab', 'facebook-f']} />
+                  </a>
+                </li>
+              )}
+
+              {!!google_plus && (
+                <li className="inline-block mx-1">
+                  <a className="link-wrapper" href={google_plus.url}>
+                    <FontAwesomeIcon icon={['fab', 'google-plus-g']} />
+                  </a>
+                </li>
+              )}
+            </ul>
           </div>
         </div>
       </div>
