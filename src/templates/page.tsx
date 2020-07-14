@@ -35,11 +35,26 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
+  const prismicHowWeWork = data?.allPrismicHowWeWork?.edges[0]?.node?.data;
+  const quality = data?.allPrismicQualityAssurance?.edges[0]?.node?.data;
+  const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
+  const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
+  const servicesContent = data?.allPrismicServices?.edges[0]?.node?.data;
   // console.log(data, pageContext);
 
   if (!prismicContent) return null;
 
   const { body, name } = prismicContent;
+  const title =
+    servicesContent ||
+    valuesContent ||
+    valuesContent ||
+    aboutContent ||
+    quality ||
+    prismicHowWeWork ||
+    prismicContact ||
+    prismicContent;
+  console.log(title, pageContext);
 
   //! add dynamic breadcrumbs
   return (
@@ -80,24 +95,18 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
                 return <Areas key={componentKey} {...{ data }} />;
 
               case 'how_we_work':
-                const prismicHowWeWork = data?.allPrismicHowWeWork?.edges[0]?.node?.data;
                 return <HowWeWork key={componentKey} {...prismicHowWeWork} />;
 
               case 'quality_assurance':
-                const quality = data?.allPrismicQualityAssurance?.edges[0]?.node?.data;
                 return <QualityAssurance key={componentKey} {...quality} />;
 
               case 'about':
-                const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
                 return <About key={componentKey} {...aboutContent} />;
 
               case 'our_values':
-                const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
                 return <OurValues key={componentKey} {...valuesContent} />;
 
               case 'services':
-                const servicesContent = data?.allPrismicServices?.edges[0]?.node?.data;
-
                 return <About key={componentKey} {...servicesContent} />;
 
               default:

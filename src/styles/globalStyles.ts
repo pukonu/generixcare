@@ -64,6 +64,17 @@ p {
   ${tw`z-10`}
 }
 
+/* Tailwind custom form start */
+.form-checkbox {
+  color: ${({ theme }) => theme.primary}
+}
+
+.form-checkbox:focus {
+  box-shadow: 0 0 0 2px rgba(190, 30, 45, 0.3);
+  border-color: ${({ theme }) => theme.primary}
+}
+/* Tailwind custom form end */
+
 @media (min-width: 576px) {
   h2 {
     font-size: 1.5rem;

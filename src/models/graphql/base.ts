@@ -1,5 +1,6 @@
 // query
 type QueryType =
+  | 'allPrismicNavigation'
   | 'allPrismicPage'
   | 'allPrismicHomeContent'
   | 'allPrismicAbout'

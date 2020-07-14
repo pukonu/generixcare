@@ -1,6 +1,11 @@
+import { ButtonHTMLAttributes } from 'react';
+import { Field } from 'formik';
+
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { NavigationRootType } from 'src/models/graphql/navigation';
 import { ImageType, ContentType } from 'src/models/graphql/base';
+
+export type TextFieldProps = typeof Field;
 
 export interface NavItems {
   title: string;
@@ -84,4 +89,27 @@ export interface SlideItemProps extends Slider {
   goTo?: (val: number) => void;
   nextSlide?: () => void;
   prevSlide?: () => void;
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  onClick?: () => void;
+}
+
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+export interface SelectFieldProps {
+  name: string;
+  placeholder: string;
+  className?: string;
+  options: SelectOption[];
+}
+
+export interface CheckboxProps {
+  name: string;
+  label: string;
+  className?: string;
 }
