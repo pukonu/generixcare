@@ -25,6 +25,7 @@ import {
   HomeContent,
   HowWeWork,
   NewsletterContainer,
+  OurValues,
   QualityAssurance
 } from 'src/components';
 
@@ -34,7 +35,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
-  // console.log(pageContext);
+  // console.log(prismicContent);
 
   if (!prismicContent) return null;
 
@@ -89,6 +90,11 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
               case 'about':
                 const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
                 return <About key={componentKey} {...aboutContent} />;
+
+              case 'our_values':
+                const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
+                return <OurValues key={componentKey} {...valuesContent} />;
+
               default:
                 return <p key={componentKey} />;
             }
@@ -217,6 +223,27 @@ export const query = graphql`
             content {
               html
               text
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicOurValues {
+      edges {
+        node {
+          data {
+            name
+            items {
+              title
+              image {
+                url
+                alt
+              }
+              content {
+                html
+                text
+              }
             }
           }
         }

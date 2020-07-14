@@ -18,7 +18,8 @@ module.exports = {
           areas: require('./src/schemas/areas.json'),
           how_we_work: require('./src/schemas/how_we_work.json'),
           quality_assurance: require('./src/schemas/quality_assurance.json'),
-          about: require('./src/schemas/about.json')
+          about: require('./src/schemas/about.json'),
+          our_values: require('./src/schemas/our_values.json')
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`

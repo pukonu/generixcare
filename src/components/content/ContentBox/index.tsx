@@ -10,15 +10,13 @@ const ContentBox: FunctionComponent<ContentBoxProps & { className?: string }> = 
   children,
   className
 }) => {
-  const { html } = content;
-
   return (
     <ContentBoxWrapper className={className}>
       {!!image && (
         <img src={image.url} className="w-full h-auto object-cover mb-2" alt={image.alt} />
       )}
-      <h2 className="title font-secondary">{title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      {!!title && <h2 className="title font-secondary">{title}</h2>}
+      {!!content && !!content.html && <div dangerouslySetInnerHTML={{ __html: content.html }} />}
       <div>{children}</div>
     </ContentBoxWrapper>
   );

@@ -50,6 +50,15 @@ export type AboutContentType = {
   items: { logo: ImageType }[];
 } & ContentType;
 
+export type OurValuesType = {
+  name: string;
+  items: {
+    title: string;
+    image: ImageType;
+    content: PrismicTextType & PrismicHtmlType;
+  }[];
+};
+
 export type ContactType = {
   address?: ContentType;
   google_map?: string;
@@ -81,7 +90,14 @@ export type QualityAssuranceType = {
 export type PageSliceComponents = {
   id: string;
   primary: {
-    component: 'home_content' | 'contact' | 'areas' | 'how_we_work' | 'quality_assurance' | 'about';
+    component:
+      | 'home_content'
+      | 'contact'
+      | 'areas'
+      | 'how_we_work'
+      | 'quality_assurance'
+      | 'about'
+      | 'our_values';
   };
 };
 
@@ -103,6 +119,7 @@ type PageType = {
 export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
   BaseQueryType<AboutContentType> &
+  BaseQueryType<OurValuesType> &
   BaseQueryType<ContactType> &
   BaseQueryType<AreaType> &
   BaseQueryType<HowWeWorkType> &

@@ -8,6 +8,7 @@ export { default as HomeContent } from './content/HomeContent';
 export { default as HowWeWork } from './content/HowWeWork';
 export { default as Layout } from './content/Layout';
 export { default as QualityAssurance } from './content/QualityAssurance';
+export { default as OurValues } from './content/OurValues';
 export { default as Slider } from './content/Slider';
 export { default as SlideItem } from './content/SlideItem';
 export { default as HighlightText } from './content/HighlightText';

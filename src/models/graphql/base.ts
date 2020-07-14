@@ -3,6 +3,7 @@ type QueryType =
   | 'allPrismicPage'
   | 'allPrismicHomeContent'
   | 'allPrismicAbout'
+  | 'allPrismicOurValues'
   | 'allPrismicContact'
   | 'allPrismicAreas'
   | 'allPrismicHowWeWork'

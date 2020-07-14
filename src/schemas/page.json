@@ -159,7 +159,8 @@
                     "areas",
                     "how_we_work",
                     "quality_assurance",
-                    "about"
+                    "about",
+                    "our_values"
                   ],
                   "label": "component",
                   "placeholder": "Select a component"
