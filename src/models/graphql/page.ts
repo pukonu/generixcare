@@ -44,6 +44,12 @@ export type HomeContentType = {
   items: ContentBoxProps[];
 };
 
+export type AboutContentType = {
+  name: string;
+  image: ImageType;
+  items: { logo: ImageType }[];
+} & ContentType;
+
 export type ContactType = {
   address?: ContentType;
   google_map?: string;
@@ -67,10 +73,15 @@ export type HowWeWorkType = {
   name: string;
 } & ContentType;
 
+export type QualityAssuranceType = {
+  name: string;
+  image: ImageType;
+} & ContentType;
+
 export type PageSliceComponents = {
   id: string;
   primary: {
-    component: 'home_content' | 'contact' | 'areas' | 'how_we_work';
+    component: 'home_content' | 'contact' | 'areas' | 'how_we_work' | 'quality_assurance' | 'about';
   };
 };
 
@@ -91,7 +102,9 @@ type PageType = {
 
 export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
+  BaseQueryType<AboutContentType> &
   BaseQueryType<ContactType> &
   BaseQueryType<AreaType> &
   BaseQueryType<HowWeWorkType> &
+  BaseQueryType<QualityAssuranceType> &
   PageContextType;

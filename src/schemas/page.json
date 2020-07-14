@@ -153,7 +153,14 @@
               "component": {
                 "type": "Select",
                 "config": {
-                  "options": ["home_content", "contact", "areas", "how_we_work"],
+                  "options": [
+                    "home_content",
+                    "contact",
+                    "areas",
+                    "how_we_work",
+                    "quality_assurance",
+                    "about"
+                  ],
                   "label": "component",
                   "placeholder": "Select a component"
                 }

@@ -15,6 +15,7 @@ import {
 } from 'src/models/graphql/page';
 
 import {
+  About,
   Areas,
   Layout,
   Slider,
@@ -23,7 +24,8 @@ import {
   HighlightText,
   HomeContent,
   HowWeWork,
-  NewsletterContainer
+  NewsletterContainer,
+  QualityAssurance
 } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
@@ -80,6 +82,13 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
                 const prismicHowWeWork = data?.allPrismicHowWeWork?.edges[0]?.node?.data;
                 return <HowWeWork key={componentKey} {...prismicHowWeWork} />;
 
+              case 'quality_assurance':
+                const quality = data?.allPrismicQualityAssurance?.edges[0]?.node?.data;
+                return <QualityAssurance key={componentKey} {...quality} />;
+
+              case 'about':
+                const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
+                return <About key={componentKey} {...aboutContent} />;
               default:
                 return <p key={componentKey} />;
             }
@@ -190,6 +199,30 @@ export const query = graphql`
       }
     }
 
+    allPrismicAbout {
+      edges {
+        node {
+          data {
+            name
+            items {
+              logo {
+                url
+                alt
+              }
+            }
+            image {
+              alt
+              url
+            }
+            content {
+              html
+              text
+            }
+          }
+        }
+      }
+    }
+
     allPrismicContact {
       edges {
         node {
@@ -246,6 +279,24 @@ export const query = graphql`
         node {
           data {
             name
+            content {
+              html
+              text
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicQualityAssurance(filter: { uid: { eq: $uid } }) {
+      edges {
+        node {
+          data {
+            name
+            image {
+              url
+              alt
+            }
             content {
               html
               text

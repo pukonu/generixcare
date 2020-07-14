@@ -2,9 +2,11 @@
 type QueryType =
   | 'allPrismicPage'
   | 'allPrismicHomeContent'
+  | 'allPrismicAbout'
   | 'allPrismicContact'
   | 'allPrismicAreas'
-  | 'allPrismicHowWeWork';
+  | 'allPrismicHowWeWork'
+  | 'allPrismicQualityAssurance';
 
 type BaseNodeType<T> = {
   node: {
