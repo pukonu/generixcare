@@ -19,7 +19,8 @@ module.exports = {
           how_we_work: require('./src/schemas/how_we_work.json'),
           quality_assurance: require('./src/schemas/quality_assurance.json'),
           about: require('./src/schemas/about.json'),
-          our_values: require('./src/schemas/our_values.json')
+          our_values: require('./src/schemas/our_values.json'),
+          services: require('./src/schemas/services.json')
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`

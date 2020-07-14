@@ -97,7 +97,8 @@ export type PageSliceComponents = {
       | 'how_we_work'
       | 'quality_assurance'
       | 'about'
-      | 'our_values';
+      | 'our_values'
+      | 'services';
   };
 };
 

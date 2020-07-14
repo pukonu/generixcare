@@ -4,6 +4,7 @@ type QueryType =
   | 'allPrismicHomeContent'
   | 'allPrismicAbout'
   | 'allPrismicOurValues'
+  | 'allPrismicServices'
   | 'allPrismicContact'
   | 'allPrismicAreas'
   | 'allPrismicHowWeWork'

@@ -160,7 +160,8 @@
                     "how_we_work",
                     "quality_assurance",
                     "about",
-                    "our_values"
+                    "our_values",
+                    "services"
                   ],
                   "label": "component",
                   "placeholder": "Select a component"

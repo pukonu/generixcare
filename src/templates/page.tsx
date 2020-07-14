@@ -35,7 +35,7 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
-  // console.log(prismicContent);
+  // console.log(data, pageContext);
 
   if (!prismicContent) return null;
 
@@ -94,6 +94,11 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
               case 'our_values':
                 const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
                 return <OurValues key={componentKey} {...valuesContent} />;
+
+              case 'services':
+                const servicesContent = data?.allPrismicServices?.edges[0]?.node?.data;
+
+                return <About key={componentKey} {...servicesContent} />;
 
               default:
                 return <p key={componentKey} />;
@@ -295,6 +300,25 @@ export const query = graphql`
             items {
               borough
               towns
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicServices(filter: { uid: { eq: $uid } }) {
+      edges {
+        node {
+          uid
+          data {
+            name
+            image {
+              alt
+              url
+            }
+            content {
+              html
+              text
             }
           }
         }
