@@ -44,25 +44,17 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
   if (!prismicContent) return null;
 
-  const { body, name } = prismicContent;
-  // const title =
-  //   servicesContent ||
-  //   valuesContent ||
-  //   valuesContent ||
-  //   aboutContent ||
-  //   quality ||
-  //   prismicHowWeWork ||
-  //   prismicContact ||
-  //   prismicContent;
-  // console.log(title, pageContext);
+  const { body } = prismicContent;
+  const pageTitle = page_title || '';
+  const breadcrumbsData = [{ title: 'Home', slug: '/' }, { title: pageTitle }];
 
-  //! add dynamic breadcrumbs
   return (
     <Layout
       showHeader={show_header}
       menuItems={memoizedMenu}
-      pageTitle={page_title || ''}
+      pageTitle={pageTitle}
       twitter={prismicContact.twitter}
+      breadcrumbsData={breadcrumbsData}
       showBreadcrumbs={show_breadcrumbs}
       facebook={prismicContact.facebook}
       google_plus={prismicContact.google_plus}

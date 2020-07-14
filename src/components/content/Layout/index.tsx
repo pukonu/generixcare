@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent, useState, useCallback } from 'react';
+import React, { FunctionComponent, useState, useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 
 import favicon from 'src/images/favicon.png';
