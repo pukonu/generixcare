@@ -1,4 +1,17 @@
-import React, { FunctionComponent, useState } from 'react';
+/* eslint-disable @typescript-eslint/camelcase */
+import React, { FunctionComponent, useState, useCallback, useMemo } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faAngleUp,
+  faAngleRight,
+  faAngleLeft,
+  faBars,
+  faGlobeEurope,
+  faPhoneAlt
+} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { Helmet } from 'react-helmet';
 
 import favicon from 'src/images/favicon.png';
@@ -8,19 +21,46 @@ import DesktopMenu from 'src/components/navigation/DesktopMenu';
 import Breadcrumbs from 'src/components/navigation/Breadcrumbs';
 import Footer from 'src/components/navigation/Footer';
 
+import { GlobalStyle } from 'src/styles/globalStyles';
+import { theme } from 'src/styles/themes';
 import { LayoutProps } from 'src/interfaces';
+import { ContactType } from 'src/models/graphql/page';
 import PageTitle from '../PageTitle';
 
-const Layout: FunctionComponent<LayoutProps> = ({
+library.add(
+  faAngleUp,
+  faAngleRight,
+  faAngleLeft,
+  faBars,
+  faTwitter,
+  faFacebookF,
+  faGooglePlusG,
+  faEnvelope,
+  faGlobeEurope,
+  faPhoneAlt
+);
+
+const Layout: FunctionComponent<
+  LayoutProps & Pick<ContactType, 'twitter' | 'facebook' | 'google_plus'>
+> = ({
+  twitter,
   children,
+  facebook,
   pageTitle,
-  seoTitle = '',
+  menuItems,
+  showHeader,
+  google_plus,
+  showBreadcrumbs,
   breadcrumbsData
 }) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
 
+  const menuHandlerTrue = useCallback(() => OpenMenu(true), []);
+  const menuHandlerFalse = useCallback(() => OpenMenu(false), []);
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -41,7 +81,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
         <meta name="slurp" content="index, follow, archive" />
         <meta name="msnbot" content="index, follow, archive" />
 
-        <title>{seoTitle} | Generix Care Website</title>
+        <title>{pageTitle} | Generix Care Website</title>
 
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
 
@@ -54,14 +94,23 @@ const Layout: FunctionComponent<LayoutProps> = ({
           rel="stylesheet"
         />
       </Helmet>
-      <Header OpenMenu={() => OpenMenu(true)} />
-      <MobileMenu OpenMenu={() => OpenMenu(false)} isMenuOpen={isMenuOpen} />
-      <DesktopMenu />
-      {pageTitle && <PageTitle title={pageTitle} />}
-      {breadcrumbsData?.length ? <Breadcrumbs data={breadcrumbsData} /> : null}
+      <Header
+        twitter={twitter}
+        facebook={facebook}
+        google_plus={google_plus}
+        OpenMenu={menuHandlerTrue}
+      />
+
+      <MobileMenu navItems={menuItems} OpenMenu={menuHandlerFalse} isMenuOpen={isMenuOpen} />
+      <DesktopMenu navItems={menuItems} />
+
+      {!!pageTitle && showHeader ? <PageTitle title={pageTitle} /> : null}
+      {breadcrumbsData?.length && showBreadcrumbs ? <Breadcrumbs data={breadcrumbsData} /> : null}
+
       <div className="container light-container pt-5 pb-10">{children}</div>
-      <Footer />
-    </>
+
+      <Footer navItems={menuItems} />
+    </ThemeProvider>
   );
 };
 

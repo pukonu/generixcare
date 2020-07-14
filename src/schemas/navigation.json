@@ -1,0 +1,156 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "UID"
+      }
+    },
+    "navigation": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading6",
+        "label": "Navigation",
+        "placeholder": "Navigation components"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "menu_item": []
+        },
+        "choices": {
+          "menu_item": {
+            "type": "Slice",
+            "fieldset": "menu_item",
+            "description": "Menu item",
+            "icon": "menu",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": "Menu label"
+                }
+              },
+              "template": {
+                "type": "Select",
+                "config": {
+                  "options": ["page"],
+                  "label": "template",
+                  "placeholder": "Select a template to display this page"
+                }
+              },
+              "page": {
+                "type": "Text",
+                "config": {
+                  "label": "page",
+                  "placeholder": "Page name holding content on prismic"
+                }
+              },
+              "page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "page_title",
+                  "placeholder": "Page title"
+                }
+              },
+              "path": {
+                "type": "Text",
+                "config": {
+                  "label": "path",
+                  "placeholder": "Path to the page"
+                }
+              },
+              "is_dropdown": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "is_dropdown"
+                }
+              },
+              "published": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Disable Menu",
+                  "placeholder_true": "Enable Menu",
+                  "default_value": true,
+                  "label": "published"
+                }
+              },
+              "show_header": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide header",
+                  "placeholder_true": "show header",
+                  "default_value": true,
+                  "label": "show_header"
+                }
+              },
+              "show_breadcrumbs": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide breadcrumbs",
+                  "placeholder_true": "show breadcrumbs",
+                  "default_value": true,
+                  "label": "show_breadcrumbs"
+                }
+              }
+            },
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": "Label for a sub menu"
+                }
+              },
+              "template": {
+                "type": "Select",
+                "config": {
+                  "options": ["page"],
+                  "label": "template",
+                  "placeholder": "Select a template to display this page"
+                }
+              },
+              "page": {
+                "type": "Text",
+                "config": {
+                  "label": "page",
+                  "placeholder": "Page name holding content on prismic"
+                }
+              },
+              "page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "page_title",
+                  "placeholder": "Page title"
+                }
+              },
+              "path": {
+                "type": "Text",
+                "config": {
+                  "label": "path",
+                  "placeholder": "Path to the page"
+                }
+              },
+              "published": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "Disable Menu",
+                  "placeholder_true": "Enable Menu",
+                  "default_value": true,
+                  "label": "published"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

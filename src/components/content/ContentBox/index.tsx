@@ -3,11 +3,21 @@ import React, { FunctionComponent } from 'react';
 import { ContentBoxProps } from 'src/interfaces';
 import { ContentBoxWrapper } from './styles';
 
-const ContentBox: FunctionComponent<ContentBoxProps> = ({ title, children, className = '' }) => {
+const ContentBox: FunctionComponent<ContentBoxProps & { className?: string }> = ({
+  title,
+  image,
+  content,
+  children,
+  className
+}) => {
   return (
     <ContentBoxWrapper className={className}>
-      <h2 className="title font-secondary">{title}</h2>
-      {children}
+      {!!image && (
+        <img src={image.url} className="w-full h-auto object-cover mb-2" alt={image.alt} />
+      )}
+      {!!title && <h2 className="title font-secondary">{title}</h2>}
+      {!!content && !!content.html && <div dangerouslySetInnerHTML={{ __html: content.html }} />}
+      <div>{children}</div>
     </ContentBoxWrapper>
   );
 };

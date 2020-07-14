@@ -1,4 +1,11 @@
+import { ButtonHTMLAttributes } from 'react';
+import { Field } from 'formik';
+
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { NavigationRootType } from 'src/models/graphql/navigation';
+import { ImageType, ContentType } from 'src/models/graphql/base';
+
+export type TextFieldProps = typeof Field;
 
 export interface NavItems {
   title: string;
@@ -17,9 +24,18 @@ export interface HeaderProps {
   OpenMenu: () => void;
 }
 
+export interface FooterProps {
+  navItems: NavigationRootType[];
+}
+
+export interface DesktopMenuProps {
+  navItems: NavigationRootType[];
+}
+
 export interface MobileMenuProps {
   OpenMenu: () => void;
   isMenuOpen: boolean;
+  navItems: NavigationRootType[];
 }
 
 export interface Breadcrumbs {
@@ -32,36 +48,25 @@ export interface BreadcrumbsProps {
 }
 
 export interface LayoutProps {
-  seoTitle: string;
   pageTitle?: string;
+  showHeader: boolean;
+  showBreadcrumbs: boolean;
   breadcrumbsData?: Breadcrumbs[];
+  menuItems: NavigationRootType[];
 }
 
 export interface PageTitleProps {
   title: string;
 }
 
-export interface ContentBoxProps {
+export type ContentBoxProps = ContentType & {
   title: string;
-  className?: string;
-}
+  image?: ImageType;
+};
 
 export interface NewsletterFormValues {
   email: string;
 }
-
-// export interface HowWeWorkData {
-//   title: string;
-//   slug: string;
-//   html: string;
-// }
-
-// export interface QualityAssuranceData {
-//   title: string;
-//   slug: string;
-//   html: string;
-//   image: string;
-// }
 
 export interface AreasWeCoverData {
   title: string;
@@ -69,13 +74,13 @@ export interface AreasWeCoverData {
 }
 
 export interface TableProps {
-  data: AreasWeCoverData[];
+  data: string[];
 }
 
 export interface Slider {
   title: string;
   link: string;
-  image: string;
+  image: ImageType;
 }
 
 export interface SlideItemProps extends Slider {
@@ -84,4 +89,27 @@ export interface SlideItemProps extends Slider {
   goTo?: (val: number) => void;
   nextSlide?: () => void;
   prevSlide?: () => void;
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  onClick?: () => void;
+}
+
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+export interface SelectFieldProps {
+  name: string;
+  placeholder: string;
+  className?: string;
+  options: SelectOption[];
+}
+
+export interface CheckboxProps {
+  name: string;
+  label: string;
+  className?: string;
 }

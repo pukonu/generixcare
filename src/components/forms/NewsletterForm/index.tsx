@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FunctionComponent } from 'react';
 import { Formik, FormikHelpers, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 
+import { PageSliceNewsletter } from 'src/models/graphql/page';
 import { NewsletterFormValues } from 'src/interfaces';
 import { NewsletterFormWrapper } from './styles';
 
@@ -17,7 +20,9 @@ const onSubmit = async (
   actions.setSubmitting(false);
 };
 
-const NewsletterForm: FunctionComponent = () => {
+const NewsletterForm: FunctionComponent<Pick<PageSliceNewsletter, 'primary'>> = ({ primary }) => {
+  const { title, input_placeholder, button_label } = primary;
+
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
@@ -28,7 +33,7 @@ const NewsletterForm: FunctionComponent = () => {
               className="text-center md:text-left inline-block font-secondary font-light text-2xl w-full md:w-7/12 md:pr-5"
               htmlFor="email"
             >
-              Drop us your email address and stay connected with us
+              {title}
             </label>
             <div className="flex items-start justify-center md:justify-end mt-3 md:mt-0 w-full md:w-5/12">
               <div>
@@ -37,7 +42,7 @@ const NewsletterForm: FunctionComponent = () => {
                   type="text"
                   name="email"
                   className="email-input"
-                  placeholder="Your email address"
+                  placeholder={input_placeholder}
                 />
                 <ErrorMessage name="email">
                   {(errMsg) => <small className="block text-center md:text-left">{errMsg}</small>}
@@ -45,7 +50,7 @@ const NewsletterForm: FunctionComponent = () => {
               </div>
 
               <button className="submit-input" type="submit" disabled={isSubmitting}>
-                Go
+                {button_label}
               </button>
             </div>
           </NewsletterFormWrapper>

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 
-import { navigation } from 'src/data/navigation';
+import { DesktopMenuProps } from 'src/interfaces';
 import { DesktopMenuWrapper } from './styles';
 
 interface ListJSX {
@@ -23,34 +23,34 @@ const getListJSX = ({ slug, title, anchorClass }: ListJSX) => {
   );
 };
 
-const navItems = navigation.map(({ title, slug, children }) => {
-  const anchorClass = 'px-5 py-3 block relative z-40';
-  const submenuAnchorClass = 'px-5 py-2 block';
+const DesktopMenu: FunctionComponent<DesktopMenuProps> = ({ navItems }) => {
+  const nav = navItems.map(({ items, primary }) => {
+    const anchorClass = 'px-5 py-3 block relative z-40';
+    const submenuAnchorClass = 'px-5 py-2 block';
 
-  const submenu =
-    children &&
-    children.map((menuItem) => (
-      <li className="nav-item-submenu" key={menuItem.title}>
-        {getListJSX({
-          slug: menuItem.slug,
-          title: menuItem.title,
-          anchorClass: submenuAnchorClass
-        })}
+    const submenu =
+      !!items.length &&
+      items.map(({ path, label }) => (
+        <li className="nav-item-submenu" key={path}>
+          {getListJSX({
+            slug: path,
+            title: label,
+            anchorClass: submenuAnchorClass
+          })}
+        </li>
+      ));
+
+    return (
+      <li key={primary.label} className="nav-parent">
+        {getListJSX({ slug: primary.path, title: primary.label, anchorClass })}
+        {submenu && <ul className="nav-submenu">{submenu}</ul>}
       </li>
-    ));
+    );
+  });
 
-  return (
-    <li key={title} className="nav-parent">
-      {getListJSX({ slug, title, anchorClass })}
-      {submenu && <ul className="nav-submenu">{submenu}</ul>}
-    </li>
-  );
-});
-
-const DesktopMenu: FunctionComponent = () => {
   return (
     <DesktopMenuWrapper className="container">
-      <ul className="-mx-4">{navItems}</ul>
+      <ul className="-mx-4">{nav}</ul>
     </DesktopMenuWrapper>
   );
 };

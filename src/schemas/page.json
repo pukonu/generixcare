@@ -1,0 +1,177 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "UID"
+      }
+    },
+    "name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "name",
+        "placeholder": "Name of the page"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "sliding_hero": [],
+          "block_quote": [],
+          "highlight": [],
+          "newsletter": [],
+          "components": []
+        },
+        "choices": {
+          "sliding_hero": {
+            "type": "Slice",
+            "fieldset": "sliding_hero",
+            "description": "A sliding hero used for the main page",
+            "icon": "home",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "sliding_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "title",
+                  "placeholder": "Title in the hero slide"
+                }
+              },
+              "show_button": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "hide slide button",
+                  "placeholder_true": "show slide button",
+                  "default_value": true,
+                  "label": "show_button"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "button_label",
+                  "placeholder": "Label of the button"
+                }
+              },
+              "button_link": {
+                "type": "Text",
+                "config": {
+                  "label": "button_link",
+                  "placeholder": "Link for the button"
+                }
+              }
+            }
+          },
+          "block_quote": {
+            "type": "Slice",
+            "fieldset": "block_quote",
+            "description": "Block quote",
+            "icon": "format_quote",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "content",
+                  "placeholder": "Quote content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "highlight": {
+            "type": "Slice",
+            "fieldset": "highlight",
+            "description": "Highlight rich text section",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "content",
+                  "placeholder": "Content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "newsletter": {
+            "type": "Slice",
+            "fieldset": "newsletter",
+            "description": "newsletter",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": "Title"
+                }
+              },
+              "input_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "input_placeholder",
+                  "placeholder": "Input placeholder"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "button_label",
+                  "placeholder": "Button label"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "components": {
+            "type": "Slice",
+            "fieldset": "components",
+            "description": "Component selection",
+            "icon": "account_balance",
+            "display": "grid",
+            "non-repeat": {
+              "component": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "home_content",
+                    "contact",
+                    "areas",
+                    "how_we_work",
+                    "quality_assurance",
+                    "about",
+                    "our_values",
+                    "services"
+                  ],
+                  "label": "component",
+                  "placeholder": "Select a component"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
