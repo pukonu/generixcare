@@ -19,6 +19,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   label
                   template
                   page
+                  page_title
                   path
                   published
                 }
@@ -26,6 +27,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   is_dropdown
                   label
                   page
+                  page_title
                   path
                   published
                   template
@@ -47,6 +49,7 @@ exports.createPages = async ({ actions, graphql }) => {
       published,
       path: link,
       page,
+      page_title,
       template,
       show_breadcrumbs,
       show_header,
@@ -64,6 +67,7 @@ exports.createPages = async ({ actions, graphql }) => {
           menuItems,
           page,
           uid,
+          page_title,
           show_breadcrumbs,
           show_header
         }
@@ -73,7 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const subMenuItems = menuItem.items;
 
       subMenuItems.map((subMenuItem) => {
-        const { published, path: link, page, template } = subMenuItem;
+        const { published, path: link, page, page_title, template } = subMenuItem;
         const uid = link && link.split('/').reverse()[0];
 
         template &&
@@ -85,6 +89,7 @@ exports.createPages = async ({ actions, graphql }) => {
               menuItems,
               page,
               uid,
+              page_title,
               show_breadcrumbs: true,
               show_header: true
             }

@@ -30,7 +30,7 @@ import {
 } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
-  const { menuItems, show_header, show_breadcrumbs } = pageContext;
+  const { menuItems, page_title, show_header, show_breadcrumbs } = pageContext;
   const memoizedMenu = useMemo(() => menuItems, []);
 
   const prismicContent = data?.allPrismicPage?.edges[0]?.node?.data;
@@ -40,28 +40,28 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
   const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
   const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
   const servicesContent = data?.allPrismicServices?.edges[0]?.node?.data;
-  // console.log(data, pageContext);
+  // console.log(pageContext);
 
   if (!prismicContent) return null;
 
   const { body, name } = prismicContent;
-  const title =
-    servicesContent ||
-    valuesContent ||
-    valuesContent ||
-    aboutContent ||
-    quality ||
-    prismicHowWeWork ||
-    prismicContact ||
-    prismicContent;
-  console.log(title, pageContext);
+  // const title =
+  //   servicesContent ||
+  //   valuesContent ||
+  //   valuesContent ||
+  //   aboutContent ||
+  //   quality ||
+  //   prismicHowWeWork ||
+  //   prismicContact ||
+  //   prismicContent;
+  // console.log(title, pageContext);
 
   //! add dynamic breadcrumbs
   return (
     <Layout
-      pageTitle={name.text}
       showHeader={show_header}
       menuItems={memoizedMenu}
+      pageTitle={page_title || ''}
       twitter={prismicContact.twitter}
       showBreadcrumbs={show_breadcrumbs}
       facebook={prismicContact.facebook}

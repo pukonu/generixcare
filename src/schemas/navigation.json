@@ -52,6 +52,13 @@
                   "placeholder": "Page name holding content on prismic"
                 }
               },
+              "page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "page_title",
+                  "placeholder": "Page title"
+                }
+              },
               "path": {
                 "type": "Text",
                 "config": {
@@ -115,6 +122,13 @@
                 "config": {
                   "label": "page",
                   "placeholder": "Page name holding content on prismic"
+                }
+              },
+              "page_title": {
+                "type": "Text",
+                "config": {
+                  "label": "page_title",
+                  "placeholder": "Page title"
                 }
               },
               "path": {
