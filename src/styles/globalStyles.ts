@@ -70,7 +70,7 @@ p {
 }
 
 .form-checkbox:focus {
-  box-shadow: 0 0 0 2px rgba(190, 30, 45, 0.3);
+  /* box-shadow: 0 0 0 2px rgba(190, 30, 45, 0.3); */
   border-color: ${({ theme }) => theme.primary}
 }
 /* Tailwind custom form end */
