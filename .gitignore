@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+.idea
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -52,7 +53,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env.development
 
 # gatsby files
 .cache/
