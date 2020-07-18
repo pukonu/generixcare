@@ -1,0 +1,48 @@
+name: Deploy Production
+
+on:
+  push:
+    branches: [ deploy/production ]
+  pull_request:
+    branches: [ deploy/production ]
+  repository_dispatch:
+    branches: [ master, deploy/production ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install
+      - run: yarn build
+        env:
+          NODE_PATH: src/
+          SKIP_PREFLIGHT_CHECK: true
+          REACT_APP_API_URL: http://api.generixcare.co.uk/api
+          REACT_APP_API_HOST: http://api.generixcare.co.uk
+          PRISMIC_REPOSITORY: ${{ secrets.PRISMIC_REPOSITORY }}
+          PRISMIC_API_KEY: ${{ secrets.PRISMIC_API_KEY }}
+          CI: false
+
+      - name: Deploy application to AWS S3 and invalidate cloudfront cache
+        uses: pukonu/action-deploy-webapp-aws@v.0.9-beta
+        id: deploy
+        with:
+          build_path: './public'
+          bucket_name: 'generixcare-production-web'
+          bucket_key: ''
+          distribution_invalidation_path: '/*'
+        env:
+          DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID_PRODUCTION }}
+          AWS_REGION: 'eu-west-1'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
