@@ -9,10 +9,14 @@ export { default as HowWeWork } from './content/HowWeWork';
 export { default as Layout } from './content/Layout';
 export { default as QualityAssurance } from './content/QualityAssurance';
 export { default as OurValues } from './content/OurValues';
+export { default as OurCarers } from './content/OurCarers';
 export { default as Slider } from './content/Slider';
 export { default as SlideItem } from './content/SlideItem';
 export { default as HighlightText } from './content/HighlightText';
 export { default as NewsletterContainer } from './content/NewsletterContainer';
+export { default as JoinOurTeam } from './content/JoinOurTeam';
+export { default as News } from './content/News';
+export { default as ContentBoxWithLink } from './content/ContentBoxWithLink';
 
 // forms
 export { default as ApplicationForm } from './forms/ApplicationForm';

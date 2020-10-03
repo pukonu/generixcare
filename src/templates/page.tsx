@@ -26,7 +26,9 @@ import {
   HowWeWork,
   NewsletterContainer,
   OurValues,
-  QualityAssurance
+  OurCarers,
+  QualityAssurance,
+  JoinOurTeam
 } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
@@ -40,7 +42,9 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
   const aboutContent = data?.allPrismicAbout?.edges[0]?.node?.data;
   const valuesContent = data?.allPrismicOurValues?.edges[0]?.node?.data;
   const servicesContent = data?.allPrismicServices?.edges[0]?.node?.data;
-  // console.log(pageContext);
+  const meetTheTeamContent = data?.allPrismicMeetTheTeam?.edges[0]?.node?.data;
+  const ourCarersContent = data?.allPrismicOurCarers?.edges[0]?.node?.data;
+  const prismicJoinOurTeam = data?.allPrismicJoinOurTeam?.edges[0]?.node?.data;
 
   if (!prismicContent) return null;
 
@@ -98,8 +102,17 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
               case 'our_values':
                 return <OurValues key={componentKey} {...valuesContent} />;
 
+              case 'meet_the_team':
+                return <OurValues key={componentKey} {...meetTheTeamContent} />;
+
+              case 'our_carers':
+                return <OurCarers key={componentKey} {...ourCarersContent} />;
+
               case 'services':
                 return <About key={componentKey} {...servicesContent} />;
+
+              case 'join_our_team':
+                return <JoinOurTeam key={componentKey} {...prismicJoinOurTeam} />;
 
               default:
                 return <p key={componentKey} />;
@@ -230,12 +243,68 @@ export const query = graphql`
               html
               text
             }
+            testimonials {
+              title {
+                html
+                text
+              }
+              testimonial_content {
+                html
+                text
+              }
+              testimonial_image {
+                alt
+                url
+              }
+            }
           }
         }
       }
     }
 
     allPrismicOurValues {
+      edges {
+        node {
+          data {
+            name
+            items {
+              title
+              image {
+                url
+                alt
+              }
+              content {
+                html
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicMeetTheTeam {
+      edges {
+        node {
+          data {
+            name
+            items {
+              title
+              image {
+                url
+                alt
+              }
+              content {
+                html
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicOurCarers {
       edges {
         node {
           data {
@@ -282,6 +351,24 @@ export const query = graphql`
               url
             }
             google_plus {
+              url
+            }
+          }
+        }
+      }
+    }
+
+    allPrismicJoinOurTeam {
+      edges {
+        node {
+          data {
+            content {
+              html
+            }
+            image {
+              url
+            }
+            button_link {
               url
             }
           }

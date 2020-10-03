@@ -45,6 +45,36 @@
         },
         "label": "items"
       }
+    },
+    "testimonials": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "testimonial_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "testimonial_image"
+            }
+          },
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "title"
+            }
+          },
+          "testimonial_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "testimonial_content"
+            }
+          }
+        },
+        "label": "testimonials"
+      }
     }
   }
 }

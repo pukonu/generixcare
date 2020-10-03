@@ -39,6 +39,24 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+
+      allPrismicNews {
+        edges {
+          node {
+            uid
+            data {
+              title
+              excerpt
+              content {
+                html
+              }
+              image {
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -101,5 +119,33 @@ exports.createPages = async ({ actions, graphql }) => {
   createPage({
     path: 'form',
     component: path.resolve('src/templates/form.tsx')
+  });
+
+  createPage({
+    path: 'latest-news',
+    component: path.resolve('src/templates/news.tsx'),
+    context: {
+      menuItems
+    }
+  });
+
+  const newsItems = result.data.allPrismicNews.edges;
+
+  newsItems.map((el) => {
+    const {
+      uid,
+      data: { content, image, title }
+    } = el.node;
+
+    createPage({
+      path: `/latest-news/${uid}`,
+      component: path.resolve('src/templates/news-single.tsx'),
+      context: {
+        menuItems,
+        content,
+        image,
+        title
+      }
+    });
   });
 };
