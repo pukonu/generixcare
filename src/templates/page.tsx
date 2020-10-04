@@ -342,6 +342,7 @@ export const query = graphql`
               html
             }
             job_openings {
+              text
               html
             }
             twitter {

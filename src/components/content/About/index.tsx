@@ -23,7 +23,7 @@ const About: FunctionComponent<AboutContentType> = ({
   testimonials = []
 }) => {
   return (
-    <>
+    <div className="about-comp">
       <div className="flex flex-wrap lg:-mx-4">
         {!!image && (
           <div className="w-full lg:w-1/3 lg:px-4">
@@ -77,7 +77,7 @@ const About: FunctionComponent<AboutContentType> = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

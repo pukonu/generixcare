@@ -1,9 +1,16 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 
 import { ContentBoxWrapper } from './styles';
 
-const ContentBoxWithLink: FunctionComponent<any> = ({ uid, title, image, excerpt }) => {
+const ContentBoxWithLink: FunctionComponent<any> = ({
+  uid,
+  title,
+  image,
+  excerpt,
+  last_publication_date = ''
+}) => {
   return (
     <ContentBoxWrapper>
       {!!image && (
@@ -25,6 +32,10 @@ const ContentBoxWithLink: FunctionComponent<any> = ({ uid, title, image, excerpt
             ...read more
           </Link>
         </div>
+      )}
+
+      {!!last_publication_date && (
+        <div className="mt-1 text-sm text-gray-700">Posted {last_publication_date}</div>
       )}
     </ContentBoxWrapper>
   );

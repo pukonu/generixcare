@@ -82,6 +82,7 @@ export const query = graphql`
               url
             }
           }
+          last_publication_date(fromNow: true)
         }
       }
     }

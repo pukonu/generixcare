@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 
@@ -5,7 +6,7 @@ import { GlobalPageType } from 'src/models/graphql/page';
 import { Layout } from 'src/components';
 
 const NewsSingle = ({ data, pageContext }: GlobalPageType) => {
-  const { menuItems, content, image, title } = pageContext;
+  const { menuItems, content, image, title, last_publication_date } = pageContext;
   const memoizedMenu = useMemo(() => menuItems, []);
 
   const prismicContact = data?.allPrismicContact?.edges[0]?.node?.data;
@@ -30,6 +31,9 @@ const NewsSingle = ({ data, pageContext }: GlobalPageType) => {
         {!!image && (
           <div className="w-full lg:w-1/3 lg:px-4">
             <img className="w-full max-w-md h-auto object-cover" src={image.url} alt={image.alt} />
+            {!!last_publication_date && (
+              <div className="mt-1 text-sm text-gray-700">Posted {last_publication_date}</div>
+            )}
           </div>
         )}
 

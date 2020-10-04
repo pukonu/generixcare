@@ -83,13 +83,13 @@ export type OurCarersType = {
 };
 
 export type ContactType = {
-  address?: ContentType;
+  address?: PrismicTextType & PrismicHtmlType;
   google_map?: string;
   website?: string;
   email?: string;
   phone?: string;
-  opening_hours?: ContentType;
-  job_openings?: PrismicHtmlType;
+  opening_hours?: PrismicTextType & PrismicHtmlType;
+  job_openings?: PrismicTextType & PrismicHtmlType;
   twitter?: PrismicExternalLinkType;
   facebook?: PrismicExternalLinkType;
   google_plus?: PrismicExternalLinkType;

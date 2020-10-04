@@ -54,6 +54,7 @@ exports.createPages = async ({ actions, graphql }) => {
                 url
               }
             }
+            last_publication_date(fromNow: true)
           }
         }
       }
@@ -134,13 +135,15 @@ exports.createPages = async ({ actions, graphql }) => {
   newsItems.map((el) => {
     const {
       uid,
-      data: { content, image, title }
+      data: { content, image, title },
+      last_publication_date
     } = el.node;
 
     createPage({
       path: `/latest-news/${uid}`,
       component: path.resolve('src/templates/news-single.tsx'),
       context: {
+        last_publication_date,
         menuItems,
         content,
         image,
