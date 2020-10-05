@@ -7,7 +7,7 @@ import { FooterWrapper } from './styles';
 
 const Footer: FunctionComponent<FooterProps> = ({ navItems }) => {
   const nav = navItems
-    .filter(({ primary }) => primary.path)
+    .filter(({ primary }) => primary.path !== '/#')
     .map(({ primary }) => {
       const { label, path } = primary;
       return (

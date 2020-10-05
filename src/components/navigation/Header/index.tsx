@@ -30,7 +30,7 @@ const Header: FunctionComponent<
           </div>
           <div className="w-full md:w-auto pt-2 md:pt-0 md:order-2">
             <ul className="text-center px-4 lg:px-0">
-              {!!twitter && (
+              {!!twitter && !!twitter.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={twitter.url}>
                     <FontAwesomeIcon icon={['fab', 'twitter']} />
@@ -38,7 +38,7 @@ const Header: FunctionComponent<
                 </li>
               )}
 
-              {!!facebook && (
+              {!!facebook && !!facebook.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={facebook.url}>
                     <FontAwesomeIcon icon={['fab', 'facebook-f']} />
@@ -46,7 +46,7 @@ const Header: FunctionComponent<
                 </li>
               )}
 
-              {!!google_plus && (
+              {!!google_plus && !!google_plus.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={google_plus.url}>
                     <FontAwesomeIcon icon={['fab', 'google-plus-g']} />
