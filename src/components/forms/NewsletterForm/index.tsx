@@ -22,7 +22,7 @@ const NewsletterForm: FunctionComponent<Pick<PageSliceNewsletter, 'primary'>> = 
   return (
     <MailchimpSubscribe
       url={url}
-      render={({ subscribe, status, message }) => (
+      render={({ subscribe, message }) => (
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

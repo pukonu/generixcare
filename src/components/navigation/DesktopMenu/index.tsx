@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
 import { DesktopMenuProps } from 'src/interfaces';
@@ -11,7 +11,15 @@ interface ListJSX {
 }
 
 const getListJSX = ({ slug, title, anchorClass }: ListJSX) => {
-  const { href, origin } = window.location;
+  const [href, setHref] = useState('');
+  const [origin, setOrigin] = useState('');
+
+  useEffect(() => {
+    const { location } = window;
+
+    setHref(location.href);
+    setOrigin(location.origin);
+  }, []);
 
   const isActiveClassName = slug !== '/#' && href.replace(origin, '') === slug ? 'active' : '';
 
