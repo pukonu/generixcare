@@ -11,8 +11,12 @@ interface ListJSX {
 }
 
 const getListJSX = ({ slug, title, anchorClass }: ListJSX) => {
+  const { href, origin } = window.location;
+
+  const isActiveClassName = slug !== '/#' && href.replace(origin, '') === slug ? 'active' : '';
+
   return slug ? (
-    <Link to={slug} className={anchorClass} role="button">
+    <Link to={slug} className={`${anchorClass} ${isActiveClassName}`} role="button">
       {title}
     </Link>
   ) : (

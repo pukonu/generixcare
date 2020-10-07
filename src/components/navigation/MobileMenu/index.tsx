@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, Fragment } from 'react';
 import { Link } from 'gatsby';
 import OutsideClickHandler from 'react-outside-click-handler';
 
@@ -23,8 +23,8 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({ OpenMenu, isMenuOpen, 
     };
 
     return (
-      <>
-        <li className="relative" key={label}>
+      <Fragment key={label}>
+        <li className="relative">
           <Link to={href}>{label}</Link>
 
           {!!items.length && (
@@ -57,7 +57,7 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({ OpenMenu, isMenuOpen, 
             ))}
           </ul>
         )}
-      </>
+      </Fragment>
     );
   });
 
