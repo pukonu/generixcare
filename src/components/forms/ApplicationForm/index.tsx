@@ -37,7 +37,14 @@ const ApplicationForm: FunctionComponent = () => {
   return (
     <Formik onSubmit={onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
       {({ isSubmitting }) => (
-        <Form className="flex flex-wrap sm:-mx-2">
+        <Form className="flex flex-wrap sm:-mx-2 w-full max-w-lg">
+          <TextField
+            id="email"
+            name="email"
+            placeholder="Full name"
+            className="w-full  mb-8 sm:px-2"
+          />
+
           <TextField
             id="email"
             name="email"
@@ -49,6 +56,20 @@ const ApplicationForm: FunctionComponent = () => {
             name="select"
             options={selectData}
             placeholder="Select Input"
+            className="w-full sm:w-1/2 mb-8 sm:px-2"
+          />
+
+          <TextField
+            id="email"
+            name="email"
+            placeholder="Phone number"
+            className="w-full sm:w-1/2 mb-8 sm:px-2"
+          />
+
+          <TextField
+            id="email"
+            name="email"
+            placeholder="Address"
             className="w-full sm:w-1/2 mb-8 sm:px-2"
           />
 

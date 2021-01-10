@@ -20,4 +20,9 @@ export const NewsletterFormWrapper = styled.div`
     background-color: ${({ theme }) => theme.primary};
     ${tw`ml-1 md:ml-2 focus:outline-none rounded-sm inline-block px-4 py-2`}
   }
+
+  .error {
+    ${tw`block text-center md:text-left`}
+    color: ${({ theme }) => theme.primary};
+  }
 `;

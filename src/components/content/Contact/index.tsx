@@ -69,7 +69,7 @@ const Contact: FunctionComponent<ContactType> = ({
           <ContentBox title="Opening Hours" content={opening_hours} className="w-full lg:w-5/12" />
         )}
 
-        {!!job_openings && (
+        {!!job_openings && !!job_openings.text && (
           <div className="pt-8">
             <h2 className="font-medium">Job Openings</h2>
             <div dangerouslySetInnerHTML={{ __html: job_openings.html }} />

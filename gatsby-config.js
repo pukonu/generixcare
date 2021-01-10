@@ -20,7 +20,11 @@ module.exports = {
           quality_assurance: require('./src/schemas/quality_assurance.json'),
           about: require('./src/schemas/about.json'),
           our_values: require('./src/schemas/our_values.json'),
-          services: require('./src/schemas/services.json')
+          meet_the_team: require('./src/schemas/meet_the_team.json'),
+          our_carers: require('./src/schemas/our_carers.json'),
+          services: require('./src/schemas/services.json'),
+          join_our_team: require('./src/schemas/join_our_team.json'),
+          news: require('./src/schemas/news.json')
         },
         // eslint-disable-next-line no-unused-vars
         linkResolver: ({ node, key, value }) => (doc) => `/${doc.uid}`

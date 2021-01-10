@@ -161,7 +161,10 @@
                     "quality_assurance",
                     "about",
                     "our_values",
-                    "services"
+                    "services",
+                    "meet_the_team",
+                    "our_carers",
+                    "join_our_team"
                   ],
                   "label": "component",
                   "placeholder": "Select a component"

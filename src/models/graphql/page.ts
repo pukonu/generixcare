@@ -48,6 +48,11 @@ export type AboutContentType = {
   name: string;
   image: ImageType;
   items: { logo: ImageType }[];
+  testimonials: {
+    title: PrismicTextType & PrismicHtmlType;
+    testimonial_content: PrismicTextType & PrismicHtmlType;
+    testimonial_image: ImageType;
+  }[];
 } & ContentType;
 
 export type OurValuesType = {
@@ -59,17 +64,41 @@ export type OurValuesType = {
   }[];
 };
 
+export type MeetTheTeamType = {
+  name: string;
+  items: {
+    title: string;
+    image: ImageType;
+    content: PrismicTextType & PrismicHtmlType;
+  }[];
+};
+
+export type OurCarersType = {
+  name: string;
+  items: {
+    title: string;
+    image: ImageType;
+    content: PrismicTextType & PrismicHtmlType;
+  }[];
+};
+
 export type ContactType = {
-  address?: ContentType;
+  address?: PrismicTextType & PrismicHtmlType;
   google_map?: string;
   website?: string;
   email?: string;
   phone?: string;
-  opening_hours?: ContentType;
-  job_openings?: PrismicHtmlType;
+  opening_hours?: PrismicTextType & PrismicHtmlType;
+  job_openings?: PrismicTextType & PrismicHtmlType;
   twitter?: PrismicExternalLinkType;
   facebook?: PrismicExternalLinkType;
   google_plus?: PrismicExternalLinkType;
+};
+
+export type JoinOurTeamType = {
+  button_link: { url: string };
+  content: PrismicTextType & PrismicHtmlType;
+  image: ImageType;
 };
 
 export type AreaType = {
@@ -98,7 +127,10 @@ export type PageSliceComponents = {
       | 'quality_assurance'
       | 'about'
       | 'our_values'
-      | 'services';
+      | 'services'
+      | 'meet_the_team'
+      | 'our_carers'
+      | 'join_our_team';
   };
 };
 
@@ -121,8 +153,11 @@ export type GlobalPageType = BaseQueryType<PageType> &
   BaseQueryType<HomeContentType> &
   BaseQueryType<AboutContentType> &
   BaseQueryType<OurValuesType> &
+  BaseQueryType<MeetTheTeamType> &
+  BaseQueryType<OurCarersType> &
   BaseQueryType<ContactType> &
   BaseQueryType<AreaType> &
   BaseQueryType<HowWeWorkType> &
   BaseQueryType<QualityAssuranceType> &
+  BaseQueryType<JoinOurTeamType> &
   PageContextType;

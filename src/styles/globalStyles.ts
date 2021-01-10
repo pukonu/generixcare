@@ -43,6 +43,11 @@ p {
   }
 }
 
+.about-comp ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
 .container {
   ${tw`w-full mx-auto px-4`};
   max-width: 1280px;

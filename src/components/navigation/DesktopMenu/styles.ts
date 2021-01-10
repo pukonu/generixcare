@@ -27,6 +27,11 @@ export const DesktopMenuWrapper = styled.div`
         color: ${({ theme }) => theme.backgroundLight};
         background-color: ${({ theme }) => theme.primary};
       }
+
+      &.active {
+        color: ${({ theme }) => theme.backgroundLight};
+        background-color: ${({ theme }) => theme.primary};
+      }
     }
 
     .nav-submenu {
