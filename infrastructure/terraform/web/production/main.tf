@@ -18,4 +18,5 @@ module "webapp" {
   s3_origin = var.s3_origin
   origin_comment = var.origin_comment
   cloudfront_logging_prefix = var.cloudfront_logging_prefix
+  lambda_static_redirect_arn = var.lambda_static_redirect_arn
 }

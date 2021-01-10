@@ -88,33 +88,31 @@ resource "aws_cloudfront_distribution" "distribution-cdn" {
   }
 
   # Cache behavior with precedence 1
-  ordered_cache_behavior {
-    path_pattern     = "/content/*"
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
 
+  ordered_cache_behavior {
+    allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+    cached_methods = ["GET", "HEAD"]
+    path_pattern = "*"
+    target_origin_id =local.s3_origin_id
+    viewer_protocol_policy = "redirect-to-https"
     forwarded_values {
       query_string = false
-
       cookies {
         forward = "none"
       }
     }
-
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
-    compress               = true
-    viewer_protocol_policy = "redirect-to-https"
+    lambda_function_association {
+      event_type = "viewer-request"
+      lambda_arn = var.lambda_static_redirect_arn
+      include_body = false
+    }
   }
 
   price_class = "PriceClass_200"
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["NG", "CA", "GB", "US"]
+      restriction_type = "none"
     }
   }
 

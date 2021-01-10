@@ -45,3 +45,7 @@ variable "cloudfront_logging_prefix" {
 variable "bucket_name" {
   description = "Name of the default bucket to be created for this infrastructure"
 }
+
+variable "lambda_static_redirect_arn" {
+  description = "arn of a lamdba function to correct cloudfront endpoints"
+}
