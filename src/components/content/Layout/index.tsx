@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent, useState, useCallback, useMemo } from 'react';
+import React, { FunctionComponent, useState, useCallback } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -93,6 +93,9 @@ const Layout: FunctionComponent<
           href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
           rel="stylesheet"
         />
+
+        <script>{`var continuallySettings = {appID: 'k98re4mnkyep'}`}</script>
+        <script src="https://cdn-app.continual.ly/js/embed/continually-embed.latest.min.js"></script>
       </Helmet>
       <Header
         twitter={twitter}
