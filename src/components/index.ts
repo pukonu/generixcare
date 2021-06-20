@@ -17,6 +17,7 @@ export { default as NewsletterContainer } from './content/NewsletterContainer';
 export { default as JoinOurTeam } from './content/JoinOurTeam';
 export { default as News } from './content/News';
 export { default as ContentBoxWithLink } from './content/ContentBoxWithLink';
+export { default as CQCWidget } from './content/CQCWidget';
 
 // forms
 export { default as ApplicationForm } from './forms/ApplicationForm';

@@ -130,7 +130,8 @@ export type PageSliceComponents = {
       | 'services'
       | 'meet_the_team'
       | 'our_carers'
-      | 'join_our_team';
+      | 'join_our_team'
+      | 'cqc_widget';
   };
 };
 

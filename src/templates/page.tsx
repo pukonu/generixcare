@@ -28,7 +28,8 @@ import {
   OurValues,
   OurCarers,
   QualityAssurance,
-  JoinOurTeam
+  JoinOurTeam,
+  CQCWidget
 } from 'src/components';
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
@@ -113,6 +114,9 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
 
               case 'join_our_team':
                 return <JoinOurTeam key={componentKey} {...prismicJoinOurTeam} />;
+
+              case 'cqc_widget':
+                return <CQCWidget key={componentKey} />;
 
               default:
                 return <p key={componentKey} />;

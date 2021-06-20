@@ -34,6 +34,21 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
     'gatsby-plugin-styled-components',
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-embed-snippet`,
+            options: {}
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {}
+          }
+        ]
+      }
+    }
   ]
 };
