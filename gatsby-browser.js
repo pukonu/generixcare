@@ -24,13 +24,11 @@ export const onClientEntry = () => {
 };
 
 // export const onPostPrefetchPathname = ({ pathname }) => {
-//   const cqcElem = document.getElementById('cqc-el');
+//   const cqcElem = document.getElementById('cqc-widget-elem');
 //
 //   if (cqcElem && cqcWrapper && pathname === '/') {
-//     window.onload = () => {
-//       addScript(
-//         '//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location'
-//       );
-//     };
+//     try {
+//       cqcElem.appendChild(cqcWrapper);
+//     } catch (e) {}
 //   }
 // };

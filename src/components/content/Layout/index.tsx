@@ -112,6 +112,8 @@ const Layout: FunctionComponent<
 
       <div className="container light-container pt-5 pb-10">{children}</div>
 
+      <div id={'cqc-widget-elem'}>&nbsp;</div>
+
       <Footer navItems={menuItems} />
     </ThemeProvider>
   );
