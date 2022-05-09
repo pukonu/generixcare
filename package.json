@@ -81,5 +81,16 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "keywords": []
+  "keywords": [],
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "eslintIgnore": [
+    "dist/*"
+  ],
+  "prettier": {
+    "bracketSpacing": true,
+    "tabWidth": 2,
+    "printWidth": 100
+  }
 }

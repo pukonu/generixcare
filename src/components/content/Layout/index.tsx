@@ -1,31 +1,31 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent, useState, useCallback } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import React, { FunctionComponent, useState, useCallback } from "react";
+import { ThemeProvider } from "styled-components";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleUp,
   faAngleRight,
   faAngleLeft,
   faBars,
   faGlobeEurope,
-  faPhoneAlt
-} from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
-import { Helmet } from 'react-helmet';
+  faPhoneAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faTwitter, faFacebookF, faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
+import { Helmet } from "react-helmet";
 
-import favicon from 'src/images/favicon.png';
-import Header from 'src/components/navigation/Header';
-import MobileMenu from 'src/components/navigation/MobileMenu';
-import DesktopMenu from 'src/components/navigation/DesktopMenu';
-import Breadcrumbs from 'src/components/navigation/Breadcrumbs';
-import Footer from 'src/components/navigation/Footer';
+import favicon from "src/images/favicon.png";
+import Header from "src/components/navigation/Header";
+import MobileMenu from "src/components/navigation/MobileMenu";
+import DesktopMenu from "src/components/navigation/DesktopMenu";
+import Breadcrumbs from "src/components/navigation/Breadcrumbs";
+import Footer from "src/components/navigation/Footer";
 
-import { GlobalStyle } from 'src/styles/globalStyles';
-import { theme } from 'src/styles/themes';
-import { LayoutProps } from 'src/interfaces';
-import { ContactType } from 'src/models/graphql/page';
-import PageTitle from '../PageTitle';
+import { GlobalStyle } from "src/styles/globalStyles";
+import { theme } from "src/styles/themes";
+import { LayoutProps } from "src/interfaces";
+import { ContactType } from "src/models/graphql/page";
+import PageTitle from "../PageTitle";
 
 library.add(
   faAngleUp,
@@ -41,7 +41,7 @@ library.add(
 );
 
 const Layout: FunctionComponent<
-  LayoutProps & Pick<ContactType, 'twitter' | 'facebook' | 'google_plus'>
+  LayoutProps & Pick<ContactType, "twitter" | "facebook" | "google_plus">
 > = ({
   twitter,
   children,
@@ -51,7 +51,7 @@ const Layout: FunctionComponent<
   showHeader,
   google_plus,
   showBreadcrumbs,
-  breadcrumbsData
+  breadcrumbsData,
 }) => {
   const [isMenuOpen, OpenMenu] = useState<boolean>(false);
 
