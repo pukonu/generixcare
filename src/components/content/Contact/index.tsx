@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FunctionComponent } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { ContactType } from 'src/models/graphql/page';
-import ContentBox from '../ContentBox';
+import { ContactType } from "src/models/graphql/page";
+import ContentBox from "../ContentBox";
 
 const Contact: FunctionComponent<ContactType> = ({
   google_map,
@@ -12,7 +12,7 @@ const Contact: FunctionComponent<ContactType> = ({
   email,
   website,
   opening_hours,
-  job_openings
+  job_openings,
 }) => {
   return (
     <>
@@ -39,14 +39,14 @@ const Contact: FunctionComponent<ContactType> = ({
             <ul className="mt-6 leading-7">
               {!!phone && (
                 <li>
-                  <FontAwesomeIcon icon="phone-alt" className="mr-2" />
+                  <FontAwesomeIcon icon="phone-alt" className="mr-2" title="Icon" />
                   Tel: {phone}
                 </li>
               )}
 
               {!!email && (
                 <li>
-                  <FontAwesomeIcon icon={['far', 'envelope']} className="mr-2" />
+                  <FontAwesomeIcon icon={["far", "envelope"]} className="mr-2" title="Icon" />
                   <a href={`mailto:${email}`} className="text-color-primary">
                     {email}
                   </a>
@@ -55,7 +55,7 @@ const Contact: FunctionComponent<ContactType> = ({
 
               {!!website && (
                 <li>
-                  <FontAwesomeIcon icon="globe-europe" className="mr-2" />
+                  <FontAwesomeIcon icon="globe-europe" className="mr-2" title="Icon" />
                   <a href={website} className="text-color-primary">
                     {website}
                   </a>

@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FunctionComponent } from "react";
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { SlideItemProps } from 'src/interfaces';
-import { SlideItemWrapper } from './styles';
+import { SlideItemProps } from "src/interfaces";
+import { SlideItemWrapper } from "./styles";
 
 const SlideItem: FunctionComponent<SlideItemProps> = ({
   title,
@@ -13,7 +13,7 @@ const SlideItem: FunctionComponent<SlideItemProps> = ({
   count = 0,
   goTo = () => null,
   nextSlide = () => null,
-  prevSlide = () => null
+  prevSlide = () => null,
 }) => {
   const dots = Array.from({ length: count }).map((_, i) => (
     <li key={i} className="dots">
@@ -37,10 +37,10 @@ const SlideItem: FunctionComponent<SlideItemProps> = ({
 
         <div className="controls-wrapper p-5 flex-1 flex items-center justify-between relative">
           <button className="controls-btn" type="button" onClick={prevSlide}>
-            <FontAwesomeIcon icon="angle-left" size="2x" />
+            <FontAwesomeIcon icon="angle-left" size="2x" title="Icon" />
           </button>
           <button className="controls-btn" type="button" onClick={nextSlide}>
-            <FontAwesomeIcon icon="angle-right" size="2x" />
+            <FontAwesomeIcon icon="angle-right" size="2x" title="Icon" />
           </button>
 
           <div className="absolute bottom-0 right-0 p-5">

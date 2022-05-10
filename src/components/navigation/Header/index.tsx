@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FunctionComponent } from "react";
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import logo from 'src/images/logo.png';
-import { HeaderProps } from 'src/interfaces';
-import { ContactType } from 'src/models/graphql/page';
-import { HeaderWrapper } from './styles';
+import logo from "src/images/logo.png";
+import { HeaderProps } from "src/interfaces";
+import { ContactType } from "src/models/graphql/page";
+import { HeaderWrapper } from "./styles";
 
 const Header: FunctionComponent<
-  HeaderProps & Pick<ContactType, 'twitter' | 'facebook' | 'google_plus'>
+  HeaderProps & Pick<ContactType, "twitter" | "facebook" | "google_plus">
 > = ({ twitter, facebook, google_plus, OpenMenu }) => {
   return (
     <HeaderWrapper>
@@ -25,7 +25,7 @@ const Header: FunctionComponent<
           </div>
           <div className="w-1/2 md:w-auto md:order-3 lg:hidden">
             <button type="button" className="menu-toggle" onClick={OpenMenu}>
-              <FontAwesomeIcon icon="bars" size="sm" />
+              <FontAwesomeIcon icon="bars" size="sm" title="Icon" />
             </button>
           </div>
           <div className="w-full md:w-auto pt-2 md:pt-0 md:order-2">
@@ -33,7 +33,7 @@ const Header: FunctionComponent<
               {!!twitter && !!twitter.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={twitter.url}>
-                    <FontAwesomeIcon icon={['fab', 'twitter']} />
+                    <FontAwesomeIcon icon={["fab", "twitter"]} title="Icon" />
                   </a>
                 </li>
               )}
@@ -41,7 +41,7 @@ const Header: FunctionComponent<
               {!!facebook && !!facebook.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={facebook.url}>
-                    <FontAwesomeIcon icon={['fab', 'facebook-f']} />
+                    <FontAwesomeIcon icon={["fab", "facebook-f"]} title="Icon" />
                   </a>
                 </li>
               )}
@@ -49,7 +49,7 @@ const Header: FunctionComponent<
               {!!google_plus && !!google_plus.url && (
                 <li className="inline-block mx-1">
                   <a className="link-wrapper" href={google_plus.url}>
-                    <FontAwesomeIcon icon={['fab', 'google-plus-g']} />
+                    <FontAwesomeIcon icon={["fab", "google-plus-g"]} title="Icon" />
                   </a>
                 </li>
               )}

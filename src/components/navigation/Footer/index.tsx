@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FunctionComponent } from "react";
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { FooterProps } from 'src/interfaces';
-import { FooterWrapper } from './styles';
+import { FooterProps } from "src/interfaces";
+import { FooterWrapper } from "./styles";
 
 const Footer: FunctionComponent<FooterProps> = ({ navItems }) => {
   const nav = navItems
-    .filter(({ primary }) => primary.path !== '/#')
+    .filter(({ primary }) => primary.path !== "/#")
     .map(({ primary }) => {
       const { label, path } = primary;
       return (
@@ -25,7 +25,7 @@ const Footer: FunctionComponent<FooterProps> = ({ navItems }) => {
 
       <a href="#">
         <button className="backTop" type="button">
-          <FontAwesomeIcon icon="angle-up" size="2x" />
+          <FontAwesomeIcon icon="angle-up" size="2x" title="Icon" />
         </button>
       </a>
     </FooterWrapper>

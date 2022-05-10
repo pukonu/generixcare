@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FunctionComponent } from "react";
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { BreadcrumbsProps } from 'src/interfaces';
-import { BreadcrumbsWrapper } from './styles';
+import { BreadcrumbsProps } from "src/interfaces";
+import { BreadcrumbsWrapper } from "./styles";
 
 const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({ data }) => {
   return (
@@ -13,7 +13,13 @@ const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({ data }) => {
           return (
             <li key={title} className="breadcrumb">
               {i !== 0 && (
-                <FontAwesomeIcon className="mx-2" icon="angle-right" color="#ccc" size="sm" />
+                <FontAwesomeIcon
+                  className="mx-2"
+                  icon="angle-right"
+                  color="#ccc"
+                  size="sm"
+                  title="Icon"
+                />
               )}
               {slug ? <Link to={slug}>{title}</Link> : title}
             </li>
