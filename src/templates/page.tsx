@@ -115,8 +115,8 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
               case "join_our_team":
                 return <JoinOurTeam key={componentKey} {...prismicJoinOurTeam} />;
 
-              case "cqc_widget":
-                return <CQCWidget key={componentKey} />;
+              // case "cqc_widget":
+              //   return <CQCWidget key={componentKey} />;
 
               default:
                 return <p key={componentKey} />;

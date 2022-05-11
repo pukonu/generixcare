@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
+import React, { FunctionComponent } from "react";
+import { Link } from "gatsby";
 
-import { ContentBoxWrapper } from './styles';
+import { ContentBoxWrapper } from "./styles";
 
 const ContentBoxWithLink: FunctionComponent<any> = ({
   uid,
   title,
   image,
   excerpt,
-  last_publication_date = ''
+  last_publication_date = "",
 }) => {
   return (
     <ContentBoxWrapper>

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from "react";
 
-import { GlobalPageType } from 'src/models/graphql/page';
-import { ContentBox } from 'src/components';
+import { GlobalPageType } from "src/models/graphql/page";
+import { ContentBox, CQCWidget } from "src/components";
 
 const HomeContent: FunctionComponent<GlobalPageType> = ({ data }) => {
   const prismicContent = data?.allPrismicHomeContent?.edges[0]?.node?.data;
@@ -21,6 +21,7 @@ const HomeContent: FunctionComponent<GlobalPageType> = ({ data }) => {
     <div className="flex flex-wrap">
       <div className="w-full lg:w-5/12 lg:pr-12">{!!leftEl.length && leftEl}</div>
       <div className="w-full lg:w-7/12">{!!rightEl.length && rightEl}</div>
+      <CQCWidget />
     </div>
   );
 };

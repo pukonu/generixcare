@@ -1,35 +1,50 @@
-import 'tailwindcss/dist/base.css';
-import 'tailwindcss/dist/components.css';
-import 'tailwindcss/dist/utilities.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "tailwindcss/dist/base.css";
+import "tailwindcss/dist/components.css";
+import "tailwindcss/dist/utilities.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 let cqcWrapper;
 
-const addScript = (url) => {
-  cqcWrapper = document.createElement('div');
-  const script = document.createElement('script');
-  script.src = url;
-  script.async = true;
-  cqcWrapper.appendChild(script);
-  document.body.appendChild(cqcWrapper);
+const addScript = (url, delay) => {
+  setTimeout(() => {
+    const cqcElem = document.getElementById("cqc-el");
+    cqcWrapper = document.createElement("div");
+    const script = document.createElement("script");
+    script.src = url;
+    script.async = true;
+    cqcElem.appendChild(script);
+    document.body.appendChild(cqcWrapper);
+  }, delay);
 };
 
 export const onClientEntry = () => {
   window.onload = () => {
     addScript(
-      '//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location'
+      "//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location",
+      2000
     );
   };
 };
 
+export const onRouteUpdate = ({ location }) => {
+  if (location.pathname === "/") {
+    addScript(
+      "//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location",
+      100
+    );
+  }
+};
+
 // export const onPostPrefetchPathname = ({ pathname }) => {
-//   const cqcElem = document.getElementById('cqc-el');
+//   const cqcElem = document.getElementById("cqc-el");
 //
-//   if (cqcElem && cqcWrapper && pathname === '/') {
+//   console.log("Pathname", pathname);
+//
+//   if (cqcElem && cqcWrapper && pathname === "/") {
 //     window.onload = () => {
 //       addScript(
-//         '//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location'
+//         "//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location"
 //       );
 //     };
 //   }
