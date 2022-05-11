@@ -2,8 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/camelcase */
-import React, { useMemo } from 'react';
-import { graphql } from 'gatsby';
+import React, { useMemo } from "react";
+import { graphql } from "gatsby";
 
 import {
   GlobalPageType,
@@ -11,8 +11,8 @@ import {
   PageSliceBlockQuote,
   PageSliceHighlight,
   PageSliceNewsletter,
-  PageSliceComponents
-} from 'src/models/graphql/page';
+  PageSliceComponents,
+} from "src/models/graphql/page";
 
 import {
   About,
@@ -29,8 +29,8 @@ import {
   OurCarers,
   QualityAssurance,
   JoinOurTeam,
-  CQCWidget
-} from 'src/components';
+  CQCWidget,
+} from "src/components";
 
 export const Page = ({ data, pageContext }: GlobalPageType) => {
   const { menuItems, page_title, show_header, show_breadcrumbs } = pageContext;
@@ -50,8 +50,8 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
   if (!prismicContent) return null;
 
   const { body } = prismicContent;
-  const pageTitle = page_title || '';
-  const breadcrumbsData = [{ title: 'Home', slug: '/' }, { title: pageTitle }];
+  const pageTitle = page_title || "";
+  const breadcrumbsData = [{ title: "Home", slug: "/" }, { title: pageTitle }];
 
   return (
     <Layout
@@ -70,63 +70,63 @@ export const Page = ({ data, pageContext }: GlobalPageType) => {
         // console.log(data);
 
         switch (slice_type) {
-          case 'sliding_hero':
+          case "sliding_hero":
             const slideSlice = slice as PageSliceSlidingHero;
             return <Slider key={sliceKey} {...slideSlice} />;
 
-          case 'block_quote':
+          case "block_quote":
             const blockquoteSlice = slice as PageSliceBlockQuote;
             return <Blockquote key={sliceKey} {...blockquoteSlice} />;
 
-          case 'components':
+          case "components":
             const componentKey = sliceKey;
             const componentSlice = slice as PageSliceComponents;
             switch (componentSlice.primary.component) {
-              case 'home_content':
+              case "home_content":
                 return <HomeContent key={componentKey} {...{ data }} />;
 
-              case 'contact':
+              case "contact":
                 return <Contact key={componentKey} {...prismicContact} />;
 
-              case 'areas':
+              case "areas":
                 return <Areas key={componentKey} {...{ data }} />;
 
-              case 'how_we_work':
+              case "how_we_work":
                 return <HowWeWork key={componentKey} {...prismicHowWeWork} />;
 
-              case 'quality_assurance':
+              case "quality_assurance":
                 return <QualityAssurance key={componentKey} {...quality} />;
 
-              case 'about':
+              case "about":
                 return <About key={componentKey} {...aboutContent} />;
 
-              case 'our_values':
+              case "our_values":
                 return <OurValues key={componentKey} {...valuesContent} />;
 
-              case 'meet_the_team':
+              case "meet_the_team":
                 return <OurValues key={componentKey} {...meetTheTeamContent} />;
 
-              case 'our_carers':
+              case "our_carers":
                 return <OurCarers key={componentKey} {...ourCarersContent} />;
 
-              case 'services':
+              case "services":
                 return <About key={componentKey} {...servicesContent} />;
 
-              case 'join_our_team':
+              case "join_our_team":
                 return <JoinOurTeam key={componentKey} {...prismicJoinOurTeam} />;
 
-              case 'cqc_widget':
+              case "cqc_widget":
                 return <CQCWidget key={componentKey} />;
 
               default:
                 return <p key={componentKey} />;
             }
 
-          case 'highlight':
+          case "highlight":
             const highlightSlice = slice as PageSliceHighlight;
             return <HighlightText key={sliceKey} {...highlightSlice} />;
 
-          case 'newsletter':
+          case "newsletter":
             const newsletterSlice = slice as PageSliceNewsletter;
             return <NewsletterContainer key={sliceKey} {...newsletterSlice} />;
 
