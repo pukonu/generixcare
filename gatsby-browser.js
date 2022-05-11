@@ -8,8 +8,12 @@ let cqcWrapper;
 
 const addScript = (url, delay) => {
   setTimeout(() => {
-    const cqcElem = document.getElementById("cqc-el");
-    cqcWrapper = document.createElement("div");
+    let cqcElem;
+    try {
+      cqcElem = document.getElementById("cqc-el");
+    } catch (e) {
+      cqcElem = document.createElement("div");
+    }
     const script = document.createElement("script");
     script.src = url;
     script.async = true;
@@ -18,20 +22,11 @@ const addScript = (url, delay) => {
   }, delay);
 };
 
-export const onClientEntry = () => {
-  window.onload = () => {
-    addScript(
-      "//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location",
-      2000
-    );
-  };
-};
-
 export const onRouteUpdate = ({ location }) => {
   if (location.pathname === "/") {
     addScript(
       "//www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2155383702&data-host=www.cqc.org.uk&type=location",
-      100
+      500
     );
   }
 };
